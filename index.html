@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Jackson Myula | Portfolio ya Kisasa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.2s ease; }
+        body { font-family: 'Inter', sans-serif; background: #ffffff; }
+        
+        .sidebar, .sidebar-mobile {
+            background: linear-gradient(135deg, var(--sidebar-start, #008dc9) 0%, var(--sidebar-end, #006b9a) 100%);
+            transition: background 0.3s ease;
+        }
+        
+        .top-bar {
+            background: linear-gradient(135deg, var(--sidebar-start, #008dc9) 0%, var(--sidebar-end, #006b9a) 100%);
+            transition: background 0.3s ease;
+        }
+        
+        :root { --sidebar-start: #008dc9; --sidebar-end: #006b9a; }
+        
+        .sidebar-mobile { position: fixed; top: 0; left: -100%; width: 85%; max-width: 320px; height: 100vh; z-index: 1000; transition: left 0.3s ease-in-out; box-shadow: 10px 0 30px rgba(0,0,0,0.2); }
+        .sidebar-mobile.open { left: 0; }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s; }
+        .overlay.active { opacity: 1; visibility: visible; }
+        
+        .skill-card-modern { background: #ffffff; border-radius: 1.5rem; box-shadow: 0 20px 35px -10px rgba(0,0,0,0.05); border: 1px solid #eef2f6; transition: all 0.3s; cursor: pointer; }
+        .skill-card-modern:hover { transform: translateY(-8px); box-shadow: 0 25px 40px -12px rgba(0,141,201,0.2); border-color: #008dc9; }
+        .project-card { background: #ffffff; border-radius: 1.5rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); transition: all 0.3s; cursor: pointer; }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1); }
+        .modal { animation: modalPop 0.3s ease; }
+        @keyframes modalPop { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .highlight { background-color: #fef9c3; color: #000; font-weight: 600; padding: 0 2px; border-radius: 4px; }
+        
+        .modal-content-scroll {
+            max-height: 65vh;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+        .modal-content-scroll::-webkit-scrollbar { width: 6px; }
+        .modal-content-scroll::-webkit-scrollbar-track { background: #e2e8f0; border-radius: 10px; }
+        .modal-content-scroll::-webkit-scrollbar-thumb { background: #008dc9; border-radius: 10px; }
+        
+        .fullscreen-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .fullscreen-viewer.active { opacity: 1; visibility: visible; }
+        .fullscreen-viewer img { max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 12px; }
+        .close-fullscreen {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 48px;
+            color: white;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            z-index: 1001;
+        }
+        .close-fullscreen:hover { background: rgba(255,255,255,0.2); transform: scale(1.1); }
+        
+        .floating-contact { position: fixed; bottom: 20px; left: 20px; z-index: 90; display: flex; flex-direction: column; gap: 12px; }
+        .contact-btn { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: white; box-shadow: 0 8px 20px rgba(0,0,0,0.2); transition: transform 0.2s; cursor: pointer; }
+        .contact-btn:hover { transform: scale(1.1); }
+        .btn-call { background-color: #22c55e; }
+        .btn-wa { background-color: #25D366; }
+        .btn-sms { background-color: #3b82f6; }
+        
+        @media (max-width: 640px) { .floating-contact { bottom: 16px; left: 16px; gap: 10px; } .contact-btn { width: 46px; height: 46px; font-size: 20px; } .close-fullscreen { top: 10px; right: 15px; width: 45px; height: 45px; font-size: 32px; } }
+        
+        body.dark { background: #0f172a !important; }
+        body.dark .bg-white, body.dark .skill-card-modern, body.dark .project-card, body.dark .settings-panel { background: #1e293b !important; color: #e2e8f0; }
+        body.dark .text-gray-700, body.dark .text-gray-800 { color: #cbd5e1 !important; }
+        body.dark .top-bar { background: linear-gradient(135deg, #0f172a, #020617) !important; }
+        
+        .lang-btn-top { background: rgba(255,255,255,0.2); color: white; padding: 6px 14px; border-radius: 30px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; backdrop-filter: blur(4px); }
+        .lang-btn-top:hover { background: rgba(255,255,255,0.35); }
+        .search-input-top { background: rgba(255,255,255,0.2); border: none; color: white; backdrop-filter: blur(4px); }
+        .search-input-top::placeholder { color: rgba(255,255,255,0.7); }
+        .search-input-top:focus { background: rgba(255,255,255,0.3); outline: none; }
+        
+        .gallery-img { cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+        .gallery-img:hover { transform: scale(1.02); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2); }
+        
+        .lang-setting-btn { background: #008dc9; color: white; padding: 12px 20px; border-radius: 30px; font-weight: 600; cursor: pointer; transition: all 0.2s; text-align: center; }
+        .lang-setting-btn:hover { background: #006b9a; transform: scale(1.02); }
+        
+        /* Make buttons touch-friendly on mobile */
+        @media (max-width: 640px) {
+            .menu-item { padding: 12px 16px !important; }
+            button, .cursor-pointer { cursor: pointer; }
+            .lang-setting-btn { padding: 14px 20px; }
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <div class="overlay" id="overlay" onclick="closeSidebarMobile()"></div>
+    <div class="sidebar-mobile" id="mobileSidebar">
+        <div class="p-5 flex justify-between items-center border-b border-white/20"><h2 class="text-2xl font-bold text-white">Menu</h2><button onclick="closeSidebarMobile()" class="text-white text-3xl">&times;</button></div>
+        <nav class="py-6 px-4" id="mobile-menu-list"></nav>
+    </div>
+
+    <header class="top-bar sticky top-0 z-50 shadow-lg">
+        <div class="max-w-screen-2xl mx-auto px-4 md:px-8 py-3">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+                <div class="flex items-center gap-3">
+                    <button onclick="openSidebarMobile()" class="md:hidden text-white text-2xl" style="background: none; border: none;"><i class="fa-solid fa-bars"></i></button>
+                    <h1 onclick="navigateTo('dashboard')" class="text-2xl md:text-3xl font-bold text-white cursor-pointer drop-shadow">Portfolio</h1>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="flex gap-2">
+                        <button onclick="setLanguage('en')" id="langEnBtn" class="lang-btn-top">English</button>
+                        <button onclick="setLanguage('sw')" id="langSwBtn" class="lang-btn-top">Kiswahili</button>
+                    </div>
+                    <button id="darkModeToggle" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white/30" style="border: none;"><i class="fa-solid fa-moon"></i></button>
+                    <div onclick="navigateTo('about')" class="w-9 h-9 md:w-10 md:h-10 bg-white/30 rounded-xl flex items-center justify-center text-white font-bold backdrop-blur-sm cursor-pointer">JM</div>
+                </div>
+            </div>
+            <div class="mt-3">
+                <div class="relative max-w-md w-full">
+                    <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-white/80"></i>
+                    <input type="text" id="searchInput" placeholder="🔍 Search anything - skills, projects, education..." class="search-input-top w-full pl-11 pr-4 py-2.5 rounded-xl text-white placeholder-white/70">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex max-w-screen-2xl mx-auto" style="min-height: calc(100vh - 130px);">
+        <div class="sidebar w-72 text-white hidden md:flex flex-col py-6 px-5 overflow-y-auto sticky top-[118px] h-[calc(100vh-118px)] rounded-r-2xl">
+            <div class="px-3 mb-6"><h2 class="uppercase text-blue-100 text-xs tracking-widest">NAVIGATION</h2></div>
+            <nav class="flex-1" id="desktop-menu-list"></nav>
+        </div>
+        
+        <div class="flex-1 overflow-auto" id="main-area"><div class="px-4 md:px-8 py-6" id="main-content"></div></div>
+    </div>
+
+    <!-- Floating Contact Buttons (Bottom Left) - Call, WhatsApp, SMS -->
+    <div class="floating-contact">
+        <a href="tel:0746526243" class="contact-btn btn-call" title="Call Me"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://wa.me/255746526243" target="_blank" class="contact-btn btn-wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="sms:0746526243" class="contact-btn btn-sms" title="Send SMS"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+
+    <div id="fullscreenViewer" class="fullscreen-viewer" onclick="closeFullscreen()">
+        <div class="close-fullscreen" onclick="event.stopPropagation(); closeFullscreen()">&times;</div>
+        <img id="fullscreenImage" src="" alt="Fullscreen view">
+    </div>
+
+    <div id="modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[100] p-4">
+        <div class="modal bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+            <div class="px-5 py-4 border-b flex justify-between items-center shrink-0">
+                <h3 id="modalTitle" class="text-2xl font-bold"></h3>
+                <button onclick="closeModal()" class="text-3xl text-gray-400 hover:text-black">&times;</button>
+            </div>
+            <div id="modalContent" class="p-5 overflow-y-auto flex-1 modal-content-scroll"></div>
+        </div>
+    </div>
+
+    <div id="settingsModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[200] p-4"><div class="settings-panel bg-white rounded-2xl max-w-md w-full p-6"><div class="flex justify-between items-center mb-5"><h2 class="text-2xl font-bold"><i class="fa-solid fa-gear"></i> Change Colors</h2><button onclick="closeSettings()" class="text-2xl">&times;</button></div><p class="text-sm text-gray-500 mb-3">Rangi inabadilisha Sidebar na Top Bar</p><div class="flex gap-3 flex-wrap"><div onclick="changeSidebarColor('#008dc9', '#006b9a')" class="w-12 h-12 rounded-xl cursor-pointer" style="background: linear-gradient(135deg, #008dc9, #006b9a)"></div><div onclick="changeSidebarColor('#3b82f6', '#1d4ed8')" class="w-12 h-12 rounded-xl cursor-pointer" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8)"></div><div onclick="changeSidebarColor('#8b5cf6', '#6d28d9')" class="w-12 h-12 rounded-xl cursor-pointer" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9)"></div><div onclick="changeSidebarColor('#10b981', '#047857')" class="w-12 h-12 rounded-xl cursor-pointer" style="background: linear-gradient(135deg, #10b981, #047857)"></div><div onclick="changeSidebarColor('#ef4444', '#b91c1c')" class="w-12 h-12 rounded-xl cursor-pointer" style="background: linear-gradient(135deg, #ef4444, #b91c1c)"></div><div onclick="changeSidebarColor('#f59e0b', '#d97706')" class="w-12 h-12 rounded-xl cursor-pointer" style="background: linear-gradient(135deg, #f59e0b, #d97706)"></div></div><button onclick="resetSidebarColor()" class="mt-5 w-full py-2 bg-gray-100 rounded-xl font-medium">Reset Default</button></div></div>
+
+    <footer class="bg-gray-900 text-white mt-12"><div class="max-w-screen-2xl mx-auto px-6 py-8 grid md:grid-cols-3 gap-6"><div><h2 class="text-xl font-bold text-[#008dc9]">Jackson Myula</h2><p class="text-gray-400 text-sm">Full Stack Developer, Graphics & Forex Trader</p></div><div><h3 class="font-semibold mb-2">Quick Links</h3><ul class="space-y-1 text-sm text-gray-400"><li onclick="navigateTo('dashboard')" class="cursor-pointer hover:text-white">Dashboard</li><li onclick="navigateTo('projects')" class="cursor-pointer hover:text-white">Projects</li><li onclick="navigateTo('contact')" class="cursor-pointer hover:text-white">Contact</li></ul></div><div><h3 class="font-semibold mb-2">Follow</h3><div class="flex gap-4 text-xl"><i class="fa-brands fa-facebook hover:text-[#008dc9] cursor-pointer"></i><i class="fa-brands fa-instagram hover:text-[#008dc9] cursor-pointer"></i><i class="fa-brands fa-linkedin hover:text-[#008dc9] cursor-pointer"></i></div></div></div><div class="text-center text-gray-500 py-3 border-t border-gray-800 text-xs">© 2026 Jackson Myula</div></footer>
+
+    <script>
+        const africanImages = {
+            dev: ["https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?w=800","https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?w=800","https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?w=800","https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?w=800","https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?w=800","https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?w=800"],
+            graphics: ["https://images.pexels.com/photos/3184294/pexels-photo-3184294.jpeg?w=800","https://images.pexels.com/photos/3184303/pexels-photo-3184303.jpeg?w=800","https://images.pexels.com/photos/3184307/pexels-photo-3184307.jpeg?w=800","https://images.pexels.com/photos/3184410/pexels-photo-3184410.jpeg?w=800","https://images.pexels.com/photos/3184408/pexels-photo-3184408.jpeg?w=800","https://images.pexels.com/photos/3184295/pexels-photo-3184295.jpeg?w=800"],
+            forex: ["https://images.pexels.com/photos/3184297/pexels-photo-3184297.jpeg?w=800","https://images.pexels.com/photos/3184300/pexels-photo-3184300.jpeg?w=800","https://images.pexels.com/photos/3184302/pexels-photo-3184302.jpeg?w=800","https://images.pexels.com/photos/3184404/pexels-photo-3184404.jpeg?w=800","https://images.pexels.com/photos/3184415/pexels-photo-3184415.jpeg?w=800","https://images.pexels.com/photos/3184299/pexels-photo-3184299.jpeg?w=800"]
+        };
+        const projectImages = ["https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?w=800","https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?w=800","https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?w=800","https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?w=800","https://images.pexels.com/photos/3184294/pexels-photo-3184294.jpeg?w=800","https://images.pexels.com/photos/3184307/pexels-photo-3184307.jpeg?w=800"];
+        
+        const translations = {
+            en: { dashboardTitle: "My Portfolio", name: "JACKSON MYULA", fullstack: "Full Stack Developer", business: "Business Systems Designer", graphics: "Graphics Designer", forex: "Forex Trader", skillsTitle: "My Skills & Expertise", skillsSub: "Click any card to see full details, 6+ images & achievements", fullstackDev: "Full Stack Development", fullstackDesc: "Building complete web apps and business systems.", graphicsDesign: "Graphics Design", graphicsDesc: "Professional branding, logos, posters, visual identity.", forexTrade: "Forex Trading", forexDesc: "Technical & fundamental analysis with 5+ years experience.", projectsTitle: "My Projects", projectsSub: "Real projects built for clients", educationTitle: "Education & Certificates", aboutTitle: "About Me", contactTitle: "Contact Me", previewCV: "Preview CV", downloadCV: "Download CV", whatsapp: "Message on WhatsApp", callMe: "Call Me", smsMe: "Send SMS", changeLanguage: "Change Website Language", selectLanguage: "Select Language", searchPlaceholder: "🔍 Search anything - skills, projects, education...", viewDetails: "Click for details & images", achievements: "✅ 15+ business systems | React, Node, Laravel", achievements2: "✅ 50+ projects | Adobe PS, Illustrator", achievements3: "✅ 5+ years experience | 25%+ ROI", fullDesc1: "I build complete web applications using React, Node.js, Laravel, MySQL. Delivered 15+ business systems.", fullDesc2: "I create professional brand identities, logos, banners, posters with 50+ successful projects.", fullDesc3: "Professional Forex trader with 5+ years experience, technical analysis, risk management." },
+            sw: { dashboardTitle: "Kwingineko Yangu", name: "JACKSON MYULA", fullstack: "Msanidi Programu Kamili", business: "Mbunifu wa Mifumo ya Biashara", graphics: "Mbunifu wa Picha", forex: "Mfanyabiashara wa Forex", skillsTitle: "Uwezo na Taaluma Zangu", skillsSub: "Bofya kadi yoyote kuona maelezo kamili, picha 6+ na mafanikio", fullstackDev: "Maendeleo ya Programu Kamili", fullstackDesc: "Kujenga programu kamili za wavuti na mifumo ya kisasa.", graphicsDesign: "Ubunifu wa Picha", graphicsDesc: "Branding za kitaalamu, logo, mabango, utambulisho wa picha.", forexTrade: "Biashara ya Forex", forexDesc: "Uchambuzi wa kiufundi na kimsingi kwa uzoefu wa miaka 5+.", projectsTitle: "Miradi Yangu", projectsSub: "Miradi halisi niliyoifanya kwa wateja", educationTitle: "Elimu na Sertifiketa", aboutTitle: "Kuhusu Mimi", contactTitle: "Wasiliana Nami", previewCV: "Angalia CV", downloadCV: "Pakua CV", whatsapp: "Tuma WhatsApp", callMe: "Piga Simu", smsMe: "Tuma Ujumbe", changeLanguage: "Badilisha Lugha ya Tovuti", selectLanguage: "Chagua Lugha", searchPlaceholder: "🔍 Tafuta chochote - uwezo, miradi, elimu...", viewDetails: "Bofya kwa maelezo na picha", achievements: "✅ Mifumo 15+ ya biashara | React, Node, Laravel", achievements2: "✅ Miradi 50+ | Adobe PS, Illustrator", achievements3: "✅ Uzoefu miaka 5+ | 25%+ ROI", fullDesc1: "Ninajenga programu kamili kwa React, Node.js, Laravel, MySQL. Nimeunda mifumo 15+ ya biashara.", fullDesc2: "Ninaunda utambulisho wa brand, logo, mabango, poster kwa miradi 50+.", fullDesc3: "Mfanyabiashara wa Forex kwa uzoefu wa miaka 5+, uchambuzi wa kiufundi na usimamizi wa hatari." }
+        };
+        
+        let currentLang = 'en', currentSection = 'dashboard', searchQuery = '';
+        let allSkillsData = [], allProjectsData = [], educationData = [];
+        
+        function t(key) { return translations[currentLang][key] || key; }
+        
+        function previewCV() { window.open('jacksoncv.pdf', '_blank'); }
+        function downloadCV() { const link = document.createElement('a'); link.href = 'jacksoncv.pdf'; link.download = 'jacksoncv.pdf'; document.body.appendChild(link); link.click(); document.body.removeChild(link); }
+        
+        function setLanguage(lang) { currentLang = lang; localStorage.setItem('portfolioLang', lang); renderMenus(); performGlobalSearch(); updateSearchPlaceholder(); document.getElementById('langEnBtn').style.opacity = lang === 'en' ? '1' : '0.7'; document.getElementById('langSwBtn').style.opacity = lang === 'sw' ? '1' : '0.7'; }
+        function updateSearchPlaceholder() { const input = document.getElementById('searchInput'); if(input) input.placeholder = t('searchPlaceholder'); }
+        
+        // Mobile sidebar functions
+        function openSidebarMobile() { document.getElementById('mobileSidebar').classList.add('open'); document.getElementById('overlay').classList.add('active'); }
+        function closeSidebarMobile() { document.getElementById('mobileSidebar').classList.remove('open'); document.getElementById('overlay').classList.remove('active'); }
+        
+        const menuItems = [
+            { id: 'dashboard', icon: 'fa-solid fa-gauge-high', labelEn: 'Dashboard', labelSw: 'Dashibodi' },
+            { id: 'skills', icon: 'fa-solid fa-laptop-code', labelEn: 'Skills', labelSw: 'Uwezo' },
+            { id: 'projects', icon: 'fa-solid fa-folder-open', labelEn: 'Projects', labelSw: 'Miradi' },
+            { id: 'education', icon: 'fa-solid fa-graduation-cap', labelEn: 'Education', labelSw: 'Elimu' },
+            { id: 'about', icon: 'fa-solid fa-user', labelEn: 'About Me', labelSw: 'Kuhusu Mimi' },
+            { id: 'contact', icon: 'fa-solid fa-envelope', labelEn: 'Contact', labelSw: 'Wasiliana' }
+        ];
+        
+        // RENDER MENUS - Settings ipo kwenye desktop na mobile sidebar
+        function renderMenus() {
+            const getLabel = (item) => currentLang === 'en' ? item.labelEn : item.labelSw;
+            
+            const menuHtml = menuItems.map(item => `
+                <div onclick="navigateTo('${item.id}'); closeSidebarMobile();" 
+                     class="menu-item flex items-center gap-4 px-4 py-3 text-base font-medium rounded-xl hover:bg-white/10 cursor-pointer mb-1.5">
+                    <i class="${item.icon} w-6"></i>
+                    <span>${getLabel(item)}</span>
+                </div>
+            `).join('');
+            
+            const settingsHtml = `
+                <div onclick="openSettings(); closeSidebarMobile();" 
+                     class="menu-item flex items-center gap-4 px-4 py-3 text-base font-medium rounded-xl hover:bg-white/10 cursor-pointer mt-4 border-t border-white/20 pt-4">
+                    <i class="fa-solid fa-sliders-h w-6"></i>
+                    <span>Settings (Colors)</span>
+                </div>
+            `;
+            
+            const desktopNav = document.getElementById('desktop-menu-list');
+            if(desktopNav) desktopNav.innerHTML = menuHtml + settingsHtml;
+            
+            const mobileNav = document.getElementById('mobile-menu-list');
+            if(mobileNav) mobileNav.innerHTML = menuHtml + settingsHtml;
+        }
+        
+        function navigateTo(section) { 
+            currentSection = section; 
+            performGlobalSearch(); 
+            window.scrollTo({ top: 0, behavior: 'smooth' }); 
+        }
+        
+        function initSearchData() {
+            allSkillsData = [
+                { id:1, titleEn:"Full Stack Development", titleSw:"Maendeleo ya Programu Kamili", descEn:t('fullstackDesc'), descSw:t('fullstackDesc'), icon:"💻", achievements: t('achievements'), fullDesc: t('fullDesc1'), images: africanImages.dev, searchTerms: "full stack development developer web react node laravel python" },
+                { id:2, titleEn:"Graphics Design", titleSw:"Ubunifu wa Picha", descEn:t('graphicsDesc'), descSw:t('graphicsDesc'), icon:"🎨", achievements: t('achievements2'), fullDesc: t('fullDesc2'), images: africanImages.graphics, searchTerms: "graphics design designer logo branding adobe illustrator" },
+                { id:3, titleEn:"Forex Trading", titleSw:"Biashara ya Forex", descEn:t('forexDesc'), descSw:t('forexDesc'), icon:"📈", achievements: t('achievements3'), fullDesc: t('fullDesc3'), images: africanImages.forex, searchTerms: "forex trading trader analysis technical fundamental" }
+            ];
+            allProjectsData = [
+                {title:"Business Management System", desc:"Full Stack Inventory & Sales System", img:projectImages[0], detail:"Mfumo kamili wa usimamizi wa biashara - inventory, mauzo, invoice.", searchTerms:"business management system inventory sales"},
+                {title:"Forex Trading Dashboard", desc:"Real-time Trading Platform", img:projectImages[1], detail:"Dashboard ya kufuatilia bei, alerts na uchambuzi.", searchTerms:"forex trading dashboard platform"},
+                {title:"School Management System", desc:"Student & Exam Management", img:projectImages[2], detail:"Mfumo wa usimamizi wa shule, usajili, matokeo.", searchTerms:"school management student exam"},
+                {title:"E-commerce Website", desc:"Modern Online Store", img:projectImages[3], detail:"Duka la mtandaoni lenye mfumo wa malipo salama.", searchTerms:"ecommerce website online store"},
+                {title:"Company Branding Package", desc:"Logo, Banners & Stationery", img:projectImages[4], detail:"Branding kamili - logo, kadi, mabango.", searchTerms:"branding logo banners"},
+                {title:"Personal Portfolio", desc:"Responsive Portfolio Website", img:projectImages[5], detail:"Portfolio ya kisasa, dark mode, lugha mbili.", searchTerms:"portfolio personal website"}
+            ];
+            educationData = [
+                { title: "Bachelor in Business Information Systems", institution: "UDOM", year: "2019-2022", details: "System Analysis, Web Dev, Database Design", searchTerms: "bachelor degree business information systems" },
+                { title: "Full Stack Web Development", institution: "Moringa School", searchTerms: "full stack web development" },
+                { title: "Forex Trading Advanced", institution: "Forex Academy", searchTerms: "forex trading advanced" },
+                { title: "Graphics Design Masterclass", institution: "Udemy", searchTerms: "graphics design masterclass" }
+            ];
+        }
+        
+        function performGlobalSearch() {
+            if(!searchQuery || searchQuery.trim() === '') {
+                if(currentSection === 'dashboard') renderDashboard();
+                else if(currentSection === 'skills') renderSkillsPage();
+                else if(currentSection === 'projects') renderProjectsPage();
+                else if(currentSection === 'education') renderEducationPage();
+                else if(currentSection === 'about') renderAbout();
+                else if(currentSection === 'contact') renderContact();
+                return;
+            }
+            const query = searchQuery.toLowerCase();
+            const matchedSkills = [], matchedProjects = [], matchedEducation = [];
+            allSkillsData.forEach(skill => { const title = currentLang === 'en' ? skill.titleEn : skill.titleSw; const desc = currentLang === 'en' ? skill.descEn : skill.descSw; if(`${title} ${desc} ${skill.achievements} ${skill.searchTerms}`.toLowerCase().includes(query)) matchedSkills.push({ ...skill, title, desc }); });
+            allProjectsData.forEach(project => { if(`${project.title} ${project.desc} ${project.searchTerms}`.toLowerCase().includes(query)) matchedProjects.push(project); });
+            educationData.forEach(edu => { if(`${edu.title} ${edu.institution || ''} ${edu.year || ''} ${edu.details || ''} ${edu.searchTerms || ''}`.toLowerCase().includes(query)) matchedEducation.push(edu); });
+            let html = `<div><h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">🔍 Search Results</h1><p class="text-gray-600 mb-6">Showing results for "<span class="font-semibold text-[#008dc9]">${searchQuery}</span>"</p>`;
+            if(matchedSkills.length === 0 && matchedProjects.length === 0 && matchedEducation.length === 0) html += `<div class="text-center py-16"><i class="fa-solid fa-search text-6xl text-gray-300 mb-4"></i><p class="text-gray-500 text-xl">No results found for "${searchQuery}"</p></div>`;
+            else {
+                if(matchedSkills.length > 0) { html += `<div class="mb-8"><h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-laptop-code text-[#008dc9]"></i> Skills (${matchedSkills.length})</h2><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${matchedSkills.map(skill => `<div onclick='showSkillDetails(${skill.id})' class="skill-card-modern p-5 cursor-pointer"><div class="text-4xl mb-2">${skill.icon}</div><h3 class="text-xl font-bold text-gray-900">${highlightText(skill.title)}</h3><p class="text-gray-600 text-sm mt-1">${highlightText(skill.desc.substring(0, 80))}${skill.desc.length > 80 ? '...' : ''}</p></div>`).join('')}</div></div>`; }
+                if(matchedProjects.length > 0) { html += `<div class="mb-8"><h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-folder-open text-[#008dc9]"></i> Projects (${matchedProjects.length})</h2><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${matchedProjects.map((p, idx) => `<div onclick="showProjectModal(${allProjectsData.findIndex(proj => proj.title === p.title)})" class="project-card overflow-hidden cursor-pointer"><img src="${p.img}" class="w-full h-36 object-cover"><div class="p-4"><h3 class="font-bold text-lg text-gray-900">${highlightText(p.title)}</h3><p class="text-gray-600 text-sm">${highlightText(p.desc)}</p></div></div>`).join('')}</div></div>`; }
+                if(matchedEducation.length > 0) { html += `<div class="mb-8"><h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-graduation-cap text-[#008dc9]"></i> Education (${matchedEducation.length})</h2><div class="space-y-3">${matchedEducation.map(edu => `<div class="bg-white rounded-xl shadow p-4 border-l-4 border-[#008dc9]"><h3 class="font-bold text-gray-900">${highlightText(edu.title)}</h3>${edu.institution ? `<p class="text-sm text-[#008dc9]">${highlightText(edu.institution)} ${edu.year ? '• ' + edu.year : ''}</p>` : ''}${edu.details ? `<p class="text-gray-600 text-sm mt-1">${highlightText(edu.details)}</p>` : ''}</div>`).join('')}</div></div>`; }
+            }
+            html += `</div>`;
+            document.getElementById('main-content').innerHTML = html;
+        }
+        
+        function highlightText(text) { if(!searchQuery || !text) return text; try { const regex = new RegExp(`(${searchQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'); return text.replace(regex, `<mark class="bg-yellow-300 text-black px-0.5 rounded font-semibold">$1</mark>`); } catch(e) { return text; } }
+        
+        function renderDashboard() { document.getElementById('main-content').innerHTML = `<div class="rounded-2xl overflow-hidden shadow-xl border border-gray-100"><div class="hero-bg h-[500px] md:h-[600px] relative" style="background-image: url('https://images.pexels.com/photos/3184297/pexels-photo-3184297.jpeg?w=1200'); background-size: cover; background-position: center;"><div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div><div class="absolute bottom-10 left-6 md:bottom-16 md:left-12 text-white"><h1 class="text-3xl md:text-6xl font-bold">${t('dashboardTitle')}</h1><h2 class="text-4xl md:text-7xl font-bold mt-2">${t('name')}</h2><div class="mt-6 space-y-2 text-base md:text-xl"><div><i class="fa-solid fa-code mr-2"></i>${t('fullstack')}</div><div><i class="fa-solid fa-chart-line mr-2"></i>${t('business')}</div><div><i class="fa-solid fa-pen-nib mr-2"></i>${t('graphics')}</div><div><i class="fa-solid fa-chart-simple mr-2"></i>${t('forex')}</div></div></div></div></div>`; }
+        function renderSkillsPage() { let html = `<div><h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-3">${t('skillsTitle')}</h1><p class="text-gray-800 mb-10">${t('skillsSub')}</p><div class="grid grid-cols-1 md:grid-cols-3 gap-6">${allSkillsData.map(skill => { const title = currentLang === 'en' ? skill.titleEn : skill.titleSw; const desc = currentLang === 'en' ? skill.descEn : skill.descSw; return `<div onclick='showSkillDetails(${skill.id})' class="skill-card-modern p-6"><div class="text-5xl mb-4">${skill.icon}</div><h3 class="text-2xl font-bold text-gray-900">${title}</h3><p class="text-gray-700 mt-2">${desc}</p><div class="mt-4 text-sm text-gray-800 border-t pt-3"><i class="fa-solid fa-circle-info text-[#008dc9]"></i> <span class="font-medium">${t('viewDetails')}</span></div></div>`; }).join('')}</div></div>`; document.getElementById('main-content').innerHTML = html; }
+        function renderProjectsPage() { let html = `<div><h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">${t('projectsTitle')}</h1><p class="text-gray-800 mb-8">${t('projectsSub')}</p><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">${allProjectsData.map((p,idx) => `<div onclick="showProjectModal(${idx})" class="project-card overflow-hidden"><img src="${p.img}" class="w-full h-44 object-cover gallery-img cursor-pointer" onclick="event.stopPropagation(); openFullscreen('${p.img}')"><div class="p-5"><h3 class="font-bold text-xl text-gray-900">${p.title}</h3><p class="text-gray-700 mt-1">${p.desc}</p></div></div>`).join('')}</div></div>`; document.getElementById('main-content').innerHTML = html; }
+        function renderEducationPage() { document.getElementById('main-content').innerHTML = `<div><h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">${t('educationTitle')}</h1><div class="bg-white rounded-2xl shadow p-6 md:p-8 border-l-8 border-[#008dc9]"><div class="flex gap-5"><div class="text-5xl">🎓</div><div><h3 class="text-2xl font-bold text-gray-900">Bachelor in Business Information Systems</h3><p class="text-[#008dc9] font-medium">UDOM • 2019-2022</p><p class="text-gray-700 mt-2">System Analysis, Web Dev, Database Design</p></div></div></div><div class="mt-6 bg-white rounded-2xl shadow p-6"><h3 class="font-bold text-xl text-gray-900">Certificates</h3><ul class="list-disc list-inside text-gray-800 mt-2"><li>Full Stack Web Development - Moringa</li><li>Forex Trading Advanced</li><li>Graphics Design Masterclass</li></ul></div></div>`; }
+        function renderAbout() { document.getElementById('main-content').innerHTML = `<div class="grid md:grid-cols-2 gap-8"><div><img src="https://images.pexels.com/photos/3184297/pexels-photo-3184297.jpeg?w=800" class="rounded-2xl shadow-xl w-full object-cover h-96 gallery-img cursor-pointer" onclick="openFullscreen('https://images.pexels.com/photos/3184297/pexels-photo-3184297.jpeg?w=1200')"></div><div><h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">${t('aboutTitle')}</h1><p class="text-gray-800 text-lg leading-relaxed">Naitwa Jackson Myula, ni Full Stack Developer, Graphics Designer na Forex Trader mwenye shauku kubwa ya teknolojia na biashara. Ninaleta suluhisho za kisasa na ubora kwa wateja wangu kutoka Tanzania.</p><div class="mt-8 flex flex-wrap gap-3"><button onclick="previewCV()" class="bg-[#008dc9] text-white px-5 py-2.5 rounded-xl font-medium hover:bg-[#006b9a] transition"><i class="fa-solid fa-eye"></i> ${t('previewCV')}</button><button onclick="downloadCV()" class="bg-gray-800 text-white px-5 py-2.5 rounded-xl font-medium hover:bg-gray-700 transition"><i class="fa-solid fa-download"></i> ${t('downloadCV')}</button></div><p class="text-sm text-gray-500 mt-4"><i class="fa-regular fa-file-pdf"></i> CV file: jacksoncv.pdf</p></div></div>`; }
+        
+        function renderContact() { document.getElementById('main-content').innerHTML = `<div><h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">${t('contactTitle')}</h1><div class="space-y-5 text-lg bg-white p-6 rounded-2xl shadow"><div class="flex gap-4 items-center"><i class="fa-solid fa-phone text-3xl text-[#008dc9]"></i><a href="tel:0746526243" class="text-gray-800">0746 526 243</a></div><div class="flex gap-4 items-center"><i class="fa-solid fa-envelope text-3xl text-[#008dc9]"></i><a href="mailto:jacksonmyula773@gmail.com" class="text-gray-800">jacksonmyula773@gmail.com</a></div><a href="https://wa.me/255746526243" target="_blank" class="inline-flex items-center gap-3 bg-[#25D366] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#128C7E] transition"><i class="fa-brands fa-whatsapp text-2xl"></i> ${t('whatsapp')}</a><a href="sms:0746526243" class="inline-flex items-center gap-3 bg-[#3b82f6] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#2563eb] transition"><i class="fa-solid fa-envelope text-2xl"></i> ${t('smsMe')}</a></div><div class="mt-8 bg-white rounded-2xl shadow p-6"><h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-[#008dc9]"></i> ${t('changeLanguage')}</h2><p class="text-gray-600 mb-4">${t('selectLanguage')}:</p><div class="flex gap-4 flex-wrap"><button onclick="setLanguage('en')" class="lang-setting-btn flex-1 text-center"><i class="fa-solid fa-flag-usa"></i> English</button><button onclick="setLanguage('sw')" class="lang-setting-btn flex-1 text-center"><i class="fa-solid fa-flag"></i> Kiswahili</button></div><p class="text-sm text-gray-500 mt-4"><i class="fa-regular fa-circle-check text-green-500"></i> Current language: <span class="font-semibold">${currentLang === 'en' ? 'English' : 'Kiswahili'}</span></p></div></div>`; }
+        
+        window.showSkillDetails = function(skillId) { const details = { 1: { titleEn: "Full Stack Development", titleSw: "Maendeleo ya Programu Kamili", fullDesc: t('fullDesc1'), achievements: t('achievements'), images: africanImages.dev }, 2: { titleEn: "Graphics Design", titleSw: "Ubunifu wa Picha", fullDesc: t('fullDesc2'), achievements: t('achievements2'), images: africanImages.graphics }, 3: { titleEn: "Forex Trading", titleSw: "Biashara ya Forex", fullDesc: t('fullDesc3'), achievements: t('achievements3'), images: africanImages.forex } }; const d = details[skillId]; const title = currentLang === 'en' ? d.titleEn : d.titleSw; const imagesHTML = d.images.map(img => `<img src="${img}" class="gallery-img rounded-xl shadow-md w-full h-48 object-cover" onclick="event.stopPropagation(); openFullscreen('${img}')">`).join(''); document.getElementById('modalTitle').innerHTML = title; document.getElementById('modalContent').innerHTML = `<p class="text-gray-800 text-base leading-relaxed mb-5">${d.fullDesc}</p><div class="bg-[#008dc9]/10 p-4 rounded-xl mb-6"><h4 class="font-bold text-[#008dc9] mb-2"><i class="fa-solid fa-trophy"></i> Achievements</h4><p class="text-gray-800">${d.achievements}</p></div><h4 class="font-bold text-xl mb-3">Gallery (${d.images.length} Images - Click to enlarge)</h4><div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">${imagesHTML}</div>`; document.getElementById('modal').classList.remove('hidden'); };
+        window.showProjectModal = function(idx) { const p = allProjectsData[idx]; document.getElementById('modalTitle').innerHTML = p.title; document.getElementById('modalContent').innerHTML = `<img src="${p.img}" class="gallery-img w-full rounded-xl mb-5 cursor-pointer" onclick="event.stopPropagation(); openFullscreen('${p.img}')"><p class="text-gray-800 text-lg">${p.detail}</p><p class="text-sm text-gray-500 mt-3"><i class="fa-solid fa-expand"></i> Click image to view fullscreen</p>`; document.getElementById('modal').classList.remove('hidden'); };
+        
+        function changeSidebarColor(start, end) { 
+            document.documentElement.style.setProperty('--sidebar-start', start); 
+            document.documentElement.style.setProperty('--sidebar-end', end); 
+            localStorage.setItem('sidebarStart', start); 
+            localStorage.setItem('sidebarEnd', end); 
+            // Force update on mobile as well
+            const mobileSidebar = document.getElementById('mobileSidebar');
+            const topBar = document.querySelector('.top-bar');
+            if(mobileSidebar) mobileSidebar.style.background = `linear-gradient(135deg, ${start}, ${end})`;
+            if(topBar) topBar.style.background = `linear-gradient(135deg, ${start}, ${end})`;
+        }
+        function resetSidebarColor() { changeSidebarColor('#008dc9', '#006b9a'); }
+        function loadSavedSidebarColor() { const s = localStorage.getItem('sidebarStart'); const e = localStorage.getItem('sidebarEnd'); if(s && e) changeSidebarColor(s, e); }
+        function openSettings() { document.getElementById('settingsModal').classList.remove('hidden'); }
+        function closeSettings() { document.getElementById('settingsModal').classList.add('hidden'); }
+        function openFullscreen(src) { document.getElementById('fullscreenImage').src = src; document.getElementById('fullscreenViewer').classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeFullscreen() { document.getElementById('fullscreenViewer').classList.remove('active'); document.body.style.overflow = ''; }
+        function closeModal() { document.getElementById('modal').classList.add('hidden'); }
+        function initDarkMode() { const dark = localStorage.getItem('darkMode') === 'true'; if(dark) document.body.classList.add('dark'); document.getElementById('darkModeToggle')?.addEventListener('click',()=>{ document.body.classList.toggle('dark'); localStorage.setItem('darkMode', document.body.classList.contains('dark')); }); }
+        function setupSearch() { document.getElementById('searchInput').addEventListener('input', (e) => { searchQuery = e.target.value.toLowerCase().trim(); performGlobalSearch(); }); }
+        
+        window.onload = () => { const savedLang = localStorage.getItem('portfolioLang'); if(savedLang === 'sw') currentLang = 'sw'; initSearchData(); renderMenus(); renderDashboard(); initDarkMode(); loadSavedSidebarColor(); setupSearch(); updateSearchPlaceholder(); document.getElementById('langEnBtn').style.opacity = currentLang === 'en' ? '1' : '0.7'; document.getElementById('langSwBtn').style.opacity = currentLang === 'sw' ? '1' : '0.7'; };
+        window.openSidebarMobile = openSidebarMobile; window.closeSidebarMobile = closeSidebarMobile; window.navigateTo = navigateTo; window.closeModal = closeModal; window.openSettings = openSettings; window.closeSettings = closeSettings; window.changeSidebarColor = changeSidebarColor; window.resetSidebarColor = resetSidebarColor; window.setLanguage = setLanguage; window.openFullscreen = openFullscreen; window.closeFullscreen = closeFullscreen; window.previewCV = previewCV; window.downloadCV = downloadCV; window.showSkillDetails = showSkillDetails; window.showProjectModal = showProjectModal;
+    </script>
+</body>
+</html>
