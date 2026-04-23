@@ -4,37 +4,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jackson Myula | Full Stack Developer Tanzania</title>
-
-<meta name="description" content="Jackson Myula ni Full Stack Developer kutoka Tanzania anayejenga websites, business systems, dashboards, graphics design na forex tools.">
-
-<meta name="keywords" content="Jackson Myula, Web Developer Tanzania, Full Stack Developer Dodoma, Portfolio Tanzania, Website Developer Tanzania, Graphics Designer Tanzania">
-
+<!-- Enhanced SEO & Keywords for Browser Searchability -->
+<title>Jackson Myula | Full Stack Developer Tanzania | Website & Graphics Design</title>
+<meta name="description" content="Jackson Myula ni Full Stack Developer, Graphics Designer na Forex Trader kutoka Tanzania. Anajenga websites, business systems, dashboards, na vifaa vya forex. Based in Dodoma.">
+<meta name="keywords" content="Jackson Myula, Full Stack Developer Tanzania, Web Developer Dodoma, Graphics Designer Tanzania, Forex Trader Tanzania, Website Development, Business Systems, Portfolio Tanzania, Jackson Mabango, Developer Tanzania, Website Design, Systems Developer, UI/UX, React, Node.js, Laravel, Forex Tools, Branding">
 <meta name="author" content="Jackson Myula">
-
-<meta property="og:title" content="Jackson Myula Portfolio">
-<meta property="og:description" content="Professional Full Stack Developer kutoka Tanzania.">
-<meta property="og:image" content="https://yourdomain.com/preview.jpg">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="googlebot" content="index, follow">
+<link rel="canonical" href="https://jacksonmyula.com/">
+<meta property="og:title" content="Jackson Myula - Full Stack & Graphics Portfolio Tanzania">
+<meta property="og:description" content="Professional Full Stack Developer, Graphics Designer na Forex Trader kutoka Dodoma, Tanzania. Angalia miradi na ujuzi wangu.">
+<meta property="og:image" content="https://i.postimg.cc/ZYGjpzX4/me1.jpg">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 
-<meta name="robots" content="index, follow">
-
-<link rel="canonical" href="https://yourdomain.com/">
+<!-- Structured Data for better SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jackson Myula",
+  "alternateName": "Jackson Mabango",
+  "jobTitle": "Full Stack Developer & Graphics Designer",
+  "url": "https://jacksonmyula.com",
+  "sameAs": [
+    "https://www.instagram.com/jackson_mabango_dodoma",
+    "https://wa.me/255746526243"
+  ],
+  "address": {
+    "@type": "City",
+    "name": "Dodoma, Tanzania"
+  }
+}
+</script>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
- <style>
+<style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.2s ease; }
-        body { font-family: 'Inter', sans-serif; background: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #ffffff; transition: background 0.2s ease; }
         
-        .sidebar, .sidebar-mobile {
-            background: linear-gradient(135deg, var(--sidebar-start, #008dc9) 0%, var(--sidebar-end, #006b9a) 100%);
-            transition: background 0.3s ease;
-        }
-        
-        .top-bar {
+        .sidebar, .sidebar-mobile, .top-bar {
             background: linear-gradient(135deg, var(--sidebar-start, #008dc9) 0%, var(--sidebar-end, #006b9a) 100%);
             transition: background 0.3s ease;
         }
@@ -52,66 +64,37 @@
         .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1); }
         .modal { animation: modalPop 0.3s ease; }
         @keyframes modalPop { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-        .highlight { background-color: #fef9c3; color: #000; font-weight: 600; padding: 0 2px; border-radius: 4px; }
         
-        .modal-content-scroll {
-            max-height: 65vh;
-            overflow-y: auto;
-            padding-right: 8px;
-        }
+        .modal-content-scroll { max-height: 65vh; overflow-y: auto; padding-right: 8px; }
         .modal-content-scroll::-webkit-scrollbar { width: 6px; }
         .modal-content-scroll::-webkit-scrollbar-track { background: #e2e8f0; border-radius: 10px; }
         .modal-content-scroll::-webkit-scrollbar-thumb { background: #008dc9; border-radius: 10px; }
         
-        .fullscreen-viewer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
+        .fullscreen-viewer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 1000; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
         .fullscreen-viewer.active { opacity: 1; visibility: visible; }
         .fullscreen-viewer img { max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 12px; }
-        .close-fullscreen {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 48px;
-            color: white;
-            cursor: pointer;
-            background: rgba(0,0,0,0.5);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-            z-index: 1001;
-        }
+        .close-fullscreen { position: absolute; top: 20px; right: 30px; font-size: 48px; color: white; cursor: pointer; background: rgba(0,0,0,0.5); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
         .close-fullscreen:hover { background: rgba(255,255,255,0.2); transform: scale(1.1); }
         
-        .floating-contact { position: fixed; bottom: 20px; left: 20px; z-index: 90; display: flex; flex-direction: column; gap: 12px; }
-        .contact-btn { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: white; box-shadow: 0 8px 20px rgba(0,0,0,0.2); transition: transform 0.2s; cursor: pointer; }
-        .contact-btn:hover { transform: scale(1.1); }
+        /* Floating contact buttons - NDOGO SANA */
+        .floating-contact { position: fixed; bottom: 20px; left: 20px; z-index: 90; display: flex; flex-direction: column; gap: 8px; }
+        .contact-btn { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.2s; cursor: pointer; text-decoration: none; }
+        .contact-btn:hover { transform: scale(1.08); }
         .btn-call { background-color: #22c55e; }
         .btn-wa { background-color: #25D366; }
         .btn-sms { background-color: #3b82f6; }
+        .btn-ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
         
-        @media (max-width: 640px) { .floating-contact { bottom: 16px; left: 16px; gap: 10px; } .contact-btn { width: 46px; height: 46px; font-size: 20px; } .close-fullscreen { top: 10px; right: 15px; width: 45px; height: 45px; font-size: 32px; } }
+        @media (max-width: 640px) { .floating-contact { bottom: 16px; left: 16px; gap: 6px; } .contact-btn { width: 34px; height: 34px; font-size: 14px; } }
+        
+        /* Contact page buttons - SMALL */
+        .contact-small-btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 30px; font-size: 14px; font-weight: 500; transition: all 0.2s; text-decoration: none; }
+        .contact-small-btn i { font-size: 16px; }
+        .contact-small-btn:hover { transform: scale(1.02); opacity: 0.9; }
         
         body.dark { background: #0f172a !important; }
         body.dark .bg-white, body.dark .skill-card-modern, body.dark .project-card, body.dark .settings-panel { background: #1e293b !important; color: #e2e8f0; }
-        body.dark .text-gray-700, body.dark .text-gray-800 { color: #cbd5e1 !important; }
+        body.dark .text-gray-700, body.dark .text-gray-800, body.dark .text-gray-900 { color: #cbd5e1 !important; }
         body.dark .top-bar { background: linear-gradient(135deg, #0f172a, #020617) !important; }
         
         .lang-btn-top { background: rgba(255,255,255,0.2); color: white; padding: 6px 14px; border-radius: 30px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; backdrop-filter: blur(4px); }
@@ -125,17 +108,10 @@
         
         .lang-setting-btn { background: #008dc9; color: white; padding: 12px 20px; border-radius: 30px; font-weight: 600; cursor: pointer; transition: all 0.2s; text-align: center; }
         .lang-setting-btn:hover { background: #006b9a; transform: scale(1.02); }
-        
-        /* Make buttons touch-friendly on mobile */
-        @media (max-width: 640px) {
-            .menu-item { padding: 12px 16px !important; }
-            button, .cursor-pointer { cursor: pointer; }
-            .lang-setting-btn { padding: 14px 20px; }
-        }
+        @media (max-width: 640px) { .menu-item { padding: 12px 16px !important; } }
     </style>
 </head>
 <body class="bg-white">
-
     <div class="overlay" id="overlay" onclick="closeSidebarMobile()"></div>
     <div class="sidebar-mobile" id="mobileSidebar">
         <div class="p-5 flex justify-between items-center border-b border-white/20"><h2 class="text-2xl font-bold text-white">Menu</h2><button onclick="closeSidebarMobile()" class="text-white text-3xl">&times;</button></div>
@@ -147,14 +123,14 @@
             <div class="flex items-center justify-between flex-wrap gap-2">
                 <div class="flex items-center gap-3">
                     <button onclick="openSidebarMobile()" class="md:hidden text-white text-2xl" style="background: none; border: none;"><i class="fa-solid fa-bars"></i></button>
-                    <h1 onclick="navigateTo('dashboard')" class="text-2xl md:text-3xl font-bold text-white cursor-pointer drop-shadow">Jackson Myula - Full Stack Developer Tanzania</h1>
+                    <h1 onclick="navigateTo('dashboard')" class="text-xl md:text-2xl lg:text-3xl font-bold text-white cursor-pointer drop-shadow">Jackson Myula - Full Stack Developer Tanzania</h1>
                 </div>
                 <div class="flex items-center gap-3">
                     <div class="flex gap-2">
                         <button onclick="setLanguage('en')" id="langEnBtn" class="lang-btn-top">English</button>
                         <button onclick="setLanguage('sw')" id="langSwBtn" class="lang-btn-top">Kiswahili</button>
                     </div>
-                    <button id="darkModeToggle" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white/30" style="border: none;"><i class="fa-solid fa-moon"></i></button>
+                    <button id="darkModeToggle" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white/30"><i class="fa-solid fa-moon"></i></button>
                     <div onclick="navigateTo('about')" class="w-9 h-9 md:w-10 md:h-10 bg-white/30 rounded-xl flex items-center justify-center text-white font-bold backdrop-blur-sm cursor-pointer">JM</div>
                 </div>
             </div>
@@ -172,15 +148,15 @@
             <div class="px-3 mb-6"><h2 class="uppercase text-blue-100 text-xs tracking-widest">NAVIGATION</h2></div>
             <nav class="flex-1" id="desktop-menu-list"></nav>
         </div>
-        
         <div class="flex-1 overflow-auto" id="main-area"><div class="px-4 md:px-8 py-6" id="main-content"></div></div>
     </div>
 
-    <!-- Floating Contact Buttons (Bottom Left) - Call, WhatsApp, SMS -->
+    <!-- Floating Contact Buttons - NDOGO SANA -->
     <div class="floating-contact">
         <a href="tel:0746526243" class="contact-btn btn-call" title="Call Me"><i class="fa-solid fa-phone"></i></a>
         <a href="https://wa.me/255746526243" target="_blank" class="contact-btn btn-wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
         <a href="sms:0746526243" class="contact-btn btn-sms" title="Send SMS"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://www.instagram.com/jackson_mabango_dodoma?igsh=OXd4Mjc3dDkzOGVo" target="_blank" class="contact-btn btn-ig" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
     </div>
 
     <div id="fullscreenViewer" class="fullscreen-viewer" onclick="closeFullscreen()">
@@ -200,39 +176,44 @@
 
     <div id="settingsModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[200] p-4"><div class="settings-panel bg-white rounded-2xl max-w-md w-full p-6"><div class="flex justify-between items-center mb-5"><h2 class="text-2xl font-bold"><i class="fa-solid fa-gear"></i> Change Colors</h2><button onclick="closeSettings()" class="text-2xl">&times;</button></div><p class="text-sm text-gray-500 mb-3">Rangi inabadilisha Sidebar na Top Bar</p><div class="flex gap-3 flex-wrap"><div onclick="changeSidebarColor('#008dc9', '#006b9a')" class="w-12 h-12 rounded-xl cursor-pointer" style="background: linear-gradient(135deg, #008dc9, #006b9a)"></div><div onclick="changeSidebarColor('#3b82f6', '#1d4ed8')" class="w-12 h-12 rounded-xl cursor-pointer" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8)"></div><div onclick="changeSidebarColor('#8b5cf6', '#6d28d9')" class="w-12 h-12 rounded-xl cursor-pointer" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9)"></div><div onclick="changeSidebarColor('#10b981', '#047857')" class="w-12 h-12 rounded-xl cursor-pointer" style="background: linear-gradient(135deg, #10b981, #047857)"></div><div onclick="changeSidebarColor('#ef4444', '#b91c1c')" class="w-12 h-12 rounded-xl cursor-pointer" style="background: linear-gradient(135deg, #ef4444, #b91c1c)"></div><div onclick="changeSidebarColor('#f59e0b', '#d97706')" class="w-12 h-12 rounded-xl cursor-pointer" style="background: linear-gradient(135deg, #f59e0b, #d97706)"></div></div><button onclick="resetSidebarColor()" class="mt-5 w-full py-2 bg-gray-100 rounded-xl font-medium">Reset Default</button></div></div>
 
-    <footer class="bg-gray-900 text-white mt-12"><div class="max-w-screen-2xl mx-auto px-6 py-8 grid md:grid-cols-3 gap-6"><div><h2 class="text-xl font-bold text-[#008dc9]">Jackson Myula</h2><p class="text-gray-400 text-sm">Full Stack Developer, Graphics & Forex Trader</p></div><div><h3 class="font-semibold mb-2">Quick Links</h3><ul class="space-y-1 text-sm text-gray-400"><li onclick="navigateTo('dashboard')" class="cursor-pointer hover:text-white">Dashboard</li><li onclick="navigateTo('projects')" class="cursor-pointer hover:text-white">Projects</li><li onclick="navigateTo('contact')" class="cursor-pointer hover:text-white">Contact</li></ul></div><div><h3 class="font-semibold mb-2">Follow</h3><div class="flex gap-4 text-xl"><i class="fa-brands fa-facebook hover:text-[#008dc9] cursor-pointer"></i><i class="fa-brands fa-instagram hover:text-[#008dc9] cursor-pointer"></i><i class="fa-brands fa-linkedin hover:text-[#008dc9] cursor-pointer"></i></div></div></div><div class="text-center text-gray-500 py-3 border-t border-gray-800 text-xs">© 2026 Jackson Myula</div></footer>
+    <footer class="bg-gray-900 text-white mt-12"><div class="max-w-screen-2xl mx-auto px-6 py-8 grid md:grid-cols-3 gap-6"><div><h2 class="text-xl font-bold text-[#008dc9]">Jackson Myula</h2><p class="text-gray-400 text-sm">Full Stack Developer, Graphics & Forex Trader | Dodoma, Tanzania</p></div><div><h3 class="font-semibold mb-2">Quick Links</h3><ul class="space-y-1 text-sm text-gray-400"><li onclick="navigateTo('dashboard')" class="cursor-pointer hover:text-white">Dashboard</li><li onclick="navigateTo('projects')" class="cursor-pointer hover:text-white">Projects</li><li onclick="navigateTo('contact')" class="cursor-pointer hover:text-white">Contact</li></ul></div><div><h3 class="font-semibold mb-2">Follow</h3><div class="flex gap-4 text-xl"><a href="https://www.instagram.com/jackson_mabango_dodoma?igsh=OXd4Mjc3dDkzOGVo" target="_blank" class="hover:text-[#008dc9] transition"><i class="fa-brands fa-instagram"></i></a></div></div></div><div class="text-center text-gray-500 py-3 border-t border-gray-800 text-xs">© 2026 Jackson Myula | Full Stack Developer Tanzania</div></footer>
 
     <script>
-        const africanImages = {
-            dev: ["https://i.postimg.cc/9XrNypMq/b5.jpg?w=800",
-                  "https://i.postimg.cc/HxKJ53hZ/b4.jpg?w=800",
-                  "https://i.postimg.cc/nMfCSrZs/b6.jpg?w=800",
-                  "https://i.postimg.cc/HxKJ53hB/b3.jpg?w=800",
-                  "https://i.postimg.cc/C1tZDJQ7/b2.jpg?w=800",
-                  "https://i.postimg.cc/x8zXPHwg/b1.jpg?w=800"],
-            graphics: ["https://i.postimg.cc/hhRfZvgL/bango2.jpg?w=800",
-                       "https://i.postimg.cc/W4N5zmCh/bango8.jpg?w=800",
-                       "https://i.postimg.cc/ZqbwnP2z/bango5.jpg?w=800",
-                       "https://i.postimg.cc/26JG0s6r/bango10.jpg?w=800",
-                       "https://i.postimg.cc/0NkVjGFx/bango7.jpg?w=800",
-                       "https://i.postimg.cc/Nj7NQCJh/bango6.jpg?w=800"],
-            forex: ["https://i.postimg.cc/nVyTBfg2/forex1.jpg?w=800",
-                      "https://i.postimg.cc/yY0jTrzJ/forex3.jpg?w=800",
-                     "https://i.postimg.cc/zDspKY6F/forex4.jpg?w=800",
-                     "ihttps://i.postimg.cc/Qxcmqnrd/forex2.jpg?w=800",
-                     "https://i.postimg.cc/NfRDxPwg/forex5.jpg?w=800",
-                     "https://i.postimg.cc/nVyTBfg2/forex1.jpg?w=800"]
-        };
-        const projectImages = [ "https://i.postimg.cc/x8zXPHwg/b1.jpg?w=800",
-                                "https://i.postimg.cc/nVyTBfg2/forex1.jpg?w=800",
-                                "https://i.postimg.cc/HxKJ53hZ/b4.jpg?w=800",
-                                "https://i.postimg.cc/C1tZDJQ7/b2.jpg?w=800",
-                                "https://i.postimg.cc/HxKJ53hB/b3.jpg?w=800",
-                                "https://i.postimg.cc/9XrNypMq/b5.jpg?w=800"];
+        // CV File Path - Same folder as index.html
+        const CV_FILE_PATH = 'jacksoncv.pdf';
         
+        // IMAGES
+        const africanImages = {
+            dev: ["https://i.postimg.cc/9XrNypMq/b5.jpg",
+                  "https://i.postimg.cc/HxKJ53hZ/b4.jpg",
+                  "https://i.postimg.cc/nMfCSrZs/b6.jpg",
+                  "https://i.postimg.cc/HxKJ53hB/b3.jpg",
+                  "https://i.postimg.cc/C1tZDJQ7/b2.jpg",
+                  "https://i.postimg.cc/x8zXPHwg/b1.jpg"],
+            graphics: ["https://i.postimg.cc/hhRfZvgL/bango2.jpg",
+                  "https://i.postimg.cc/W4N5zmCh/bango8.jpg",
+                  "https://i.postimg.cc/ZqbwnP2z/bango5.jpg",
+                  "https://i.postimg.cc/26JG0s6r/bango10.jpg",
+                  "https://i.postimg.cc/0NkVjGFx/bango7.jpg",
+                  "https://i.postimg.cc/Nj7NQCJh/bango6.jpg"],
+            forex: ["https://i.postimg.cc/nVyTBfg2/forex1.jpg",
+            "https://i.postimg.cc/yY0jTrzJ/forex3.jpg",
+            "https://i.postimg.cc/zDspKY6F/forex4.jpg",
+            "https://i.postimg.cc/Qxcmqnrd/forex2.jpg",
+            "https://i.postimg.cc/NfRDxPwg/forex5.jpg",
+            "https://i.postimg.cc/nVyTBfg2/forex1.jpg"]
+        };
+        const projectImages = ["https://i.postimg.cc/x8zXPHwg/b1.jpg",
+                                "https://i.postimg.cc/nVyTBfg2/forex1.jpg",
+                                "https://i.postimg.cc/HxKJ53hZ/b4.jpg",
+                                "https://i.postimg.cc/C1tZDJQ7/b2.jpg",
+                                "https://i.postimg.cc/HxKJ53hB/b3.jpg",
+                                "https://i.postimg.cc/9XrNypMq/b5.jpg"];
+        
+        // TRANSLATIONS
         const translations = {
-            en: { dashboardTitle: "My Portfolio", name: "JACKSON MYULA", fullstack: "Full Stack Developer", business: "Business Systems Designer", graphics: "Graphics Designer", forex: "Forex Trader", skillsTitle: "My Skills & Expertise", skillsSub: "Click any card to see full details, 6+ images & achievements", fullstackDev: "Full Stack Development", fullstackDesc: "Building complete web apps and business systems.", graphicsDesign: "Graphics Design", graphicsDesc: "Professional branding, logos, posters, visual identity.", forexTrade: "Forex Trading", forexDesc: "Technical & fundamental analysis with 5+ years experience.", projectsTitle: "My Projects", projectsSub: "Real projects built for clients", educationTitle: "Education & Certificates", aboutTitle: "About Me", contactTitle: "Contact Me", previewCV: "Preview CV", downloadCV: "Download CV", whatsapp: "Message on WhatsApp", callMe: "Call Me", smsMe: "Send SMS", changeLanguage: "Change Website Language", selectLanguage: "Select Language", searchPlaceholder: "🔍 Search anything - skills, projects, education...", viewDetails: "Click for details & images", achievements: "✅ 15+ business systems | React, Node, Laravel", achievements2: "✅ 50+ projects | Adobe PS, Illustrator", achievements3: "✅ 5+ years experience | 25%+ ROI", fullDesc1: "I build complete web applications using React, Node.js, Laravel, MySQL. Delivered 15+ business systems.", fullDesc2: "I create professional brand identities, logos, banners, posters with 50+ successful projects.", fullDesc3: "Professional Forex trader with 5+ years experience, technical analysis, risk management." },
-            sw: { dashboardTitle: "Kwingineko Yangu", name: "JACKSON MYULA", fullstack: "Msanidi Programu Kamili", business: "Mbunifu wa Mifumo ya Biashara", graphics: "Mbunifu wa Picha", forex: "Mfanyabiashara wa Forex", skillsTitle: "Uwezo na Taaluma Zangu", skillsSub: "Bofya kadi yoyote kuona maelezo kamili, picha 6+ na mafanikio", fullstackDev: "Maendeleo ya Programu Kamili", fullstackDesc: "Kujenga programu kamili za wavuti na mifumo ya kisasa.", graphicsDesign: "Ubunifu wa Picha", graphicsDesc: "Branding za kitaalamu, logo, mabango, utambulisho wa picha.", forexTrade: "Biashara ya Forex", forexDesc: "Uchambuzi wa kiufundi na kimsingi kwa uzoefu wa miaka 5+.", projectsTitle: "Miradi Yangu", projectsSub: "Miradi halisi niliyoifanya kwa wateja", educationTitle: "Elimu na Sertifiketa", aboutTitle: "Kuhusu Mimi", contactTitle: "Wasiliana Nami", previewCV: "Angalia CV", downloadCV: "Pakua CV", whatsapp: "Tuma WhatsApp", callMe: "Piga Simu", smsMe: "Tuma Ujumbe", changeLanguage: "Badilisha Lugha ya Tovuti", selectLanguage: "Chagua Lugha", searchPlaceholder: "🔍 Tafuta chochote - uwezo, miradi, elimu...", viewDetails: "Bofya kwa maelezo na picha", achievements: "✅ Mifumo 15+ ya biashara | React, Node, Laravel", achievements2: "✅ Miradi 50+ | Adobe PS, Illustrator", achievements3: "✅ Uzoefu miaka 5+ | 25%+ ROI", fullDesc1: "Ninajenga programu kamili kwa React, Node.js, Laravel, MySQL. Nimeunda mifumo 15+ ya biashara.", fullDesc2: "Ninaunda utambulisho wa brand, logo, mabango, poster kwa miradi 50+.", fullDesc3: "Mfanyabiashara wa Forex kwa uzoefu wa miaka 5+, uchambuzi wa kiufundi na usimamizi wa hatari." }
+            en: { dashboardTitle: "My Portfolio", name: "JACKSON MYULA", fullstack: "Full Stack Developer", business: "Business Systems Designer", graphics: "Graphics Designer", forex: "Forex Trader", skillsTitle: "My Skills & Expertise", skillsSub: "Click any card to see full details, 6+ images & achievements", fullstackDev: "Full Stack Development", fullstackDesc: "Building complete web apps and business systems.", graphicsDesign: "Graphics Design", graphicsDesc: "Professional branding, logos, posters, visual identity.", forexTrade: "Forex Trading", forexDesc: "Technical & fundamental analysis with 5+ years experience.", projectsTitle: "My Projects", projectsSub: "Real projects built for clients", educationTitle: "Education & Certificates", aboutTitle: "About Me", contactTitle: "Contact Me", previewCV: "Preview CV", downloadCV: "Download CV", whatsapp: "WhatsApp", callMe: "Call Me", smsMe: "Send SMS", instagram: "Instagram", changeLanguage: "Change Website Language", selectLanguage: "Select Language", searchPlaceholder: "🔍 Search anything - skills, projects, education...", viewDetails: "Click for details & images", achievements: "✅ 15+ business systems | React, Node, Laravel", achievements2: "✅ 50+ projects | Adobe PS, Illustrator", achievements3: "✅ 5+ years experience | 25%+ ROI", fullDesc1: "I build complete web applications using React, Node.js, Laravel, MySQL. Delivered 15+ business systems.", fullDesc2: "I create professional brand identities, logos, banners, posters with 50+ successful projects.", fullDesc3: "Professional Forex trader with 5+ years experience, technical analysis, risk management." },
+            sw: { dashboardTitle: "Kwingineko Yangu", name: "JACKSON MYULA", fullstack: "Msanidi Programu Kamili", business: "Mbunifu wa Mifumo ya Biashara", graphics: "Mbunifu wa Picha", forex: "Mfanyabiashara wa Forex", skillsTitle: "Uwezo na Taaluma Zangu", skillsSub: "Bofya kadi yoyote kuona maelezo kamili, picha 6+ na mafanikio", fullstackDev: "Maendeleo ya Programu Kamili", fullstackDesc: "Kujenga programu kamili za wavuti na mifumo ya kisasa.", graphicsDesign: "Ubunifu wa Picha", graphicsDesc: "Branding za kitaalamu, logo, mabango, utambulisho wa picha.", forexTrade: "Biashara ya Forex", forexDesc: "Uchambuzi wa kiufundi na kimsingi kwa uzoefu wa miaka 5+.", projectsTitle: "Miradi Yangu", projectsSub: "Miradi halisi niliyoifanya kwa wateja", educationTitle: "Elimu na Sertifiketa", aboutTitle: "Kuhusu Mimi", contactTitle: "Wasiliana Nami", previewCV: "Angalia CV", downloadCV: "Pakua CV", whatsapp: "WhatsApp", callMe: "Piga Simu", smsMe: "Tuma Ujumbe", instagram: "Instagram", changeLanguage: "Badilisha Lugha ya Tovuti", selectLanguage: "Chagua Lugha", searchPlaceholder: "🔍 Tafuta chochote - uwezo, miradi, elimu...", viewDetails: "Bofya kwa maelezo na picha", achievements: "✅ Mifumo 15+ ya biashara | React, Node, Laravel", achievements2: "✅ Miradi 50+ | Adobe PS, Illustrator", achievements3: "✅ Uzoefu miaka 5+ | 25%+ ROI", fullDesc1: "Ninajenga programu kamili kwa React, Node.js, Laravel, MySQL. Nimeunda mifumo 15+ ya biashara.", fullDesc2: "Ninaunda utambulisho wa brand, logo, mabango, poster kwa miradi 50+.", fullDesc3: "Mfanyabiashara wa Forex kwa uzoefu wa miaka 5+, uchambuzi wa kiufundi na usimamizi wa hatari." }
         };
         
         let currentLang = 'en', currentSection = 'dashboard', searchQuery = '';
@@ -240,13 +221,22 @@
         
         function t(key) { return translations[currentLang][key] || key; }
         
-        function previewCV() { window.open('jacksoncv.pdf', '_blank'); }
-        function downloadCV() { const link = document.createElement('a'); link.href = 'jacksoncv.pdf'; link.download = 'jacksoncv.pdf'; document.body.appendChild(link); link.click(); document.body.removeChild(link); }
+        // CV Functions - using actual file from same folder
+        function previewCV() { 
+            window.open(CV_FILE_PATH, '_blank');
+        }
+        function downloadCV() { 
+            const link = document.createElement('a');
+            link.href = CV_FILE_PATH;
+            link.download = 'jacksoncv.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
         
         function setLanguage(lang) { currentLang = lang; localStorage.setItem('portfolioLang', lang); renderMenus(); performGlobalSearch(); updateSearchPlaceholder(); document.getElementById('langEnBtn').style.opacity = lang === 'en' ? '1' : '0.7'; document.getElementById('langSwBtn').style.opacity = lang === 'sw' ? '1' : '0.7'; }
         function updateSearchPlaceholder() { const input = document.getElementById('searchInput'); if(input) input.placeholder = t('searchPlaceholder'); }
         
-        // Mobile sidebar functions
         function openSidebarMobile() { document.getElementById('mobileSidebar').classList.add('open'); document.getElementById('overlay').classList.add('active'); }
         function closeSidebarMobile() { document.getElementById('mobileSidebar').classList.remove('open'); document.getElementById('overlay').classList.remove('active'); }
         
@@ -259,58 +249,37 @@
             { id: 'contact', icon: 'fa-solid fa-envelope', labelEn: 'Contact', labelSw: 'Wasiliana' }
         ];
         
-        // RENDER MENUS - Settings ipo kwenye desktop na mobile sidebar
         function renderMenus() {
             const getLabel = (item) => currentLang === 'en' ? item.labelEn : item.labelSw;
-            
-            const menuHtml = menuItems.map(item => `
-                <div onclick="navigateTo('${item.id}'); closeSidebarMobile();" 
-                     class="menu-item flex items-center gap-4 px-4 py-3 text-base font-medium rounded-xl hover:bg-white/10 cursor-pointer mb-1.5">
-                    <i class="${item.icon} w-6"></i>
-                    <span>${getLabel(item)}</span>
-                </div>
-            `).join('');
-            
-            const settingsHtml = `
-                <div onclick="openSettings(); closeSidebarMobile();" 
-                     class="menu-item flex items-center gap-4 px-4 py-3 text-base font-medium rounded-xl hover:bg-white/10 cursor-pointer mt-4 border-t border-white/20 pt-4">
-                    <i class="fa-solid fa-sliders-h w-6"></i>
-                    <span>Settings (Colors)</span>
-                </div>
-            `;
-            
+            const menuHtml = menuItems.map(item => `<div onclick="navigateTo('${item.id}'); closeSidebarMobile();" class="menu-item flex items-center gap-4 px-4 py-3 text-base font-medium rounded-xl hover:bg-white/10 cursor-pointer mb-1.5"><i class="${item.icon} w-6"></i><span>${getLabel(item)}</span></div>`).join('');
+            const settingsHtml = `<div onclick="openSettings(); closeSidebarMobile();" class="menu-item flex items-center gap-4 px-4 py-3 text-base font-medium rounded-xl hover:bg-white/10 cursor-pointer mt-4 border-t border-white/20 pt-4"><i class="fa-solid fa-sliders-h w-6"></i><span>Settings (Colors)</span></div>`;
             const desktopNav = document.getElementById('desktop-menu-list');
-            if(desktopNav) desktopNav.innerHTML = menuHtml + settingsHtml;
-            
             const mobileNav = document.getElementById('mobile-menu-list');
+            if(desktopNav) desktopNav.innerHTML = menuHtml + settingsHtml;
             if(mobileNav) mobileNav.innerHTML = menuHtml + settingsHtml;
         }
         
-        function navigateTo(section) { 
-            currentSection = section; 
-            performGlobalSearch(); 
-            window.scrollTo({ top: 0, behavior: 'smooth' }); 
-        }
+        function navigateTo(section) { currentSection = section; performGlobalSearch(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
         
         function initSearchData() {
             allSkillsData = [
-                { id:1, titleEn:"Full Stack Development", titleSw:"Maendeleo ya Programu Kamili", descEn:t('fullstackDesc'), descSw:t('fullstackDesc'), icon:"💻", achievements: t('achievements'), fullDesc: t('fullDesc1'), images: africanImages.dev, searchTerms: "full stack development developer web react node laravel python" },
-                { id:2, titleEn:"Graphics Design", titleSw:"Ubunifu wa Picha", descEn:t('graphicsDesc'), descSw:t('graphicsDesc'), icon:"🎨", achievements: t('achievements2'), fullDesc: t('fullDesc2'), images: africanImages.graphics, searchTerms: "graphics design designer logo branding adobe illustrator" },
-                { id:3, titleEn:"Forex Trading", titleSw:"Biashara ya Forex", descEn:t('forexDesc'), descSw:t('forexDesc'), icon:"📈", achievements: t('achievements3'), fullDesc: t('fullDesc3'), images: africanImages.forex, searchTerms: "forex trading trader analysis technical fundamental" }
+                { id:1, titleEn:"Full Stack Development", titleSw:"Maendeleo ya Programu Kamili", descEn:t('fullstackDesc'), descSw:t('fullstackDesc'), icon:"💻", achievements: t('achievements'), fullDesc: t('fullDesc1'), images: africanImages.dev, searchTerms: "full stack development developer web react node laravel python php mysql" },
+                { id:2, titleEn:"Graphics Design", titleSw:"Ubunifu wa Picha", descEn:t('graphicsDesc'), descSw:t('graphicsDesc'), icon:"🎨", achievements: t('achievements2'), fullDesc: t('fullDesc2'), images: africanImages.graphics, searchTerms: "graphics design designer logo branding adobe illustrator photoshop poster banner" },
+                { id:3, titleEn:"Forex Trading", titleSw:"Biashara ya Forex", descEn:t('forexDesc'), descSw:t('forexDesc'), icon:"📈", achievements: t('achievements3'), fullDesc: t('fullDesc3'), images: africanImages.forex, searchTerms: "forex trading trader analysis technical fundamental mt4 mt5" }
             ];
             allProjectsData = [
-                {title:"Business Management System", desc:"Full Stack Inventory & Sales System", img:projectImages[0], detail:"Mfumo kamili wa usimamizi wa biashara - inventory, mauzo, invoice.", searchTerms:"business management system inventory sales"},
-                {title:"Forex Trading Dashboard", desc:"Real-time Trading Platform", img:projectImages[1], detail:"Dashboard ya kufuatilia bei, alerts na uchambuzi.", searchTerms:"forex trading dashboard platform"},
-                {title:"School Management System", desc:"Student & Exam Management", img:projectImages[2], detail:"Mfumo wa usimamizi wa shule, usajili, matokeo.", searchTerms:"school management student exam"},
-                {title:"E-commerce Website", desc:"Modern Online Store", img:projectImages[3], detail:"Duka la mtandaoni lenye mfumo wa malipo salama.", searchTerms:"ecommerce website online store"},
-                {title:"Company Branding Package", desc:"Logo, Banners & Stationery", img:projectImages[4], detail:"Branding kamili - logo, kadi, mabango.", searchTerms:"branding logo banners"},
-                {title:"Personal Portfolio", desc:"Responsive Portfolio Website", img:projectImages[5], detail:"Portfolio ya kisasa, dark mode, lugha mbili.", searchTerms:"portfolio personal website"}
+                {title:"Business Management System", desc:"Full Stack Inventory & Sales System", img:projectImages[0], detail:"Mfumo kamili wa usimamizi wa biashara - inventory, mauzo, invoice.", searchTerms:"business management system inventory sales pos"},
+                {title:"Forex Trading Dashboard", desc:"Real-time Trading Platform", img:projectImages[1], detail:"Dashboard ya kufuatilia bei, alerts na uchambuzi.", searchTerms:"forex trading dashboard platform realtime"},
+                {title:"School Management System", desc:"Student & Exam Management", img:projectImages[2], detail:"Mfumo wa usimamizi wa shule, usajili, matokeo.", searchTerms:"school management student exam grading"},
+                {title:"E-commerce Website", desc:"Modern Online Store", img:projectImages[3], detail:"Duka la mtandaoni lenye mfumo wa malipo salama.", searchTerms:"ecommerce website online store shop"},
+                {title:"Company Branding Package", desc:"Logo, Banners & Stationery", img:projectImages[4], detail:"Branding kamili - logo, kadi, mabango.", searchTerms:"branding logo banners stationery"},
+                {title:"Personal Portfolio", desc:"Responsive Portfolio Website", img:projectImages[5], detail:"Portfolio ya kisasa, dark mode, lugha mbili.", searchTerms:"portfolio personal website developer"}
             ];
             educationData = [
-                { title: "Bachelor in Business Information Systems", institution: "UDOM", year: "2019-2022", details: "System Analysis, Web Dev, Database Design", searchTerms: "bachelor degree business information systems" },
-                { title: "Full Stack Web Development", institution: "Moringa School", searchTerms: "full stack web development" },
-                { title: "Forex Trading Advanced", institution: "Forex Academy", searchTerms: "forex trading advanced" },
-                { title: "Graphics Design Masterclass", institution: "Udemy", searchTerms: "graphics design masterclass" }
+                { title: "Bachelor in Business Information Systems", institution: "UDOM", year: "2019-2022", details: "System Analysis, Web Dev, Database Design", searchTerms: "bachelor degree business information systems udom" },
+                { title: "Full Stack Web Development", institution: "Moringa School", details: "React, Node, MongoDB, Express", searchTerms: "full stack web development moringa" },
+                { title: "Forex Trading Advanced", institution: "Forex Academy", details: "Technical Analysis, Risk Management", searchTerms: "forex trading advanced academy" },
+                { title: "Graphics Design Masterclass", institution: "Udemy", details: "Adobe Photoshop, Illustrator, Branding", searchTerms: "graphics design masterclass udemy" }
             ];
         }
         
@@ -325,45 +294,91 @@
                 return;
             }
             const query = searchQuery.toLowerCase();
-            const matchedSkills = [], matchedProjects = [], matchedEducation = [];
-            allSkillsData.forEach(skill => { const title = currentLang === 'en' ? skill.titleEn : skill.titleSw; const desc = currentLang === 'en' ? skill.descEn : skill.descSw; if(`${title} ${desc} ${skill.achievements} ${skill.searchTerms}`.toLowerCase().includes(query)) matchedSkills.push({ ...skill, title, desc }); });
-            allProjectsData.forEach(project => { if(`${project.title} ${project.desc} ${project.searchTerms}`.toLowerCase().includes(query)) matchedProjects.push(project); });
-            educationData.forEach(edu => { if(`${edu.title} ${edu.institution || ''} ${edu.year || ''} ${edu.details || ''} ${edu.searchTerms || ''}`.toLowerCase().includes(query)) matchedEducation.push(edu); });
+            const matchedSkills = [];
+            const matchedProjects = [];
+            const matchedEducation = [];
+            
+            for(let skill of allSkillsData) { 
+                const title = currentLang === 'en' ? skill.titleEn : skill.titleSw; 
+                const desc = currentLang === 'en' ? skill.descEn : skill.descSw; 
+                if((title + " " + desc + " " + skill.achievements + " " + skill.searchTerms).toLowerCase().includes(query)) {
+                    matchedSkills.push({ ...skill, title, desc }); 
+                }
+            }
+            for(let project of allProjectsData) { 
+                if((project.title + " " + project.desc + " " + project.searchTerms).toLowerCase().includes(query)) {
+                    matchedProjects.push(project); 
+                }
+            }
+            for(let edu of educationData) { 
+                if((edu.title + " " + (edu.institution || '') + " " + (edu.year || '') + " " + (edu.details || '') + " " + (edu.searchTerms || '')).toLowerCase().includes(query)) {
+                    matchedEducation.push(edu); 
+                }
+            }
+            
             let html = `<div><h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">🔍 Search Results</h1><p class="text-gray-600 mb-6">Showing results for "<span class="font-semibold text-[#008dc9]">${searchQuery}</span>"</p>`;
-            if(matchedSkills.length === 0 && matchedProjects.length === 0 && matchedEducation.length === 0) html += `<div class="text-center py-16"><i class="fa-solid fa-search text-6xl text-gray-300 mb-4"></i><p class="text-gray-500 text-xl">No results found for "${searchQuery}"</p></div>`;
-            else {
-                if(matchedSkills.length > 0) { html += `<div class="mb-8"><h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-laptop-code text-[#008dc9]"></i> Skills (${matchedSkills.length})</h2><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${matchedSkills.map(skill => `<div onclick='showSkillDetails(${skill.id})' class="skill-card-modern p-5 cursor-pointer"><div class="text-4xl mb-2">${skill.icon}</div><h3 class="text-xl font-bold text-gray-900">${highlightText(skill.title)}</h3><p class="text-gray-600 text-sm mt-1">${highlightText(skill.desc.substring(0, 80))}${skill.desc.length > 80 ? '...' : ''}</p></div>`).join('')}</div></div>`; }
-                if(matchedProjects.length > 0) { html += `<div class="mb-8"><h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-folder-open text-[#008dc9]"></i> Projects (${matchedProjects.length})</h2><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${matchedProjects.map((p, idx) => `<div onclick="showProjectModal(${allProjectsData.findIndex(proj => proj.title === p.title)})" class="project-card overflow-hidden cursor-pointer"><img src="${p.img}" class="w-full h-36 object-cover"><div class="p-4"><h3 class="font-bold text-lg text-gray-900">${highlightText(p.title)}</h3><p class="text-gray-600 text-sm">${highlightText(p.desc)}</p></div></div>`).join('')}</div></div>`; }
-                if(matchedEducation.length > 0) { html += `<div class="mb-8"><h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-graduation-cap text-[#008dc9]"></i> Education (${matchedEducation.length})</h2><div class="space-y-3">${matchedEducation.map(edu => `<div class="bg-white rounded-xl shadow p-4 border-l-4 border-[#008dc9]"><h3 class="font-bold text-gray-900">${highlightText(edu.title)}</h3>${edu.institution ? `<p class="text-sm text-[#008dc9]">${highlightText(edu.institution)} ${edu.year ? '• ' + edu.year : ''}</p>` : ''}${edu.details ? `<p class="text-gray-600 text-sm mt-1">${highlightText(edu.details)}</p>` : ''}</div>`).join('')}</div></div>`; }
+            
+            if(matchedSkills.length === 0 && matchedProjects.length === 0 && matchedEducation.length === 0) {
+                html += `<div class="text-center py-16"><i class="fa-solid fa-search text-6xl text-gray-300 mb-4"></i><p class="text-gray-500 text-xl">No results found for "${searchQuery}"</p></div>`;
+            } else {
+                if(matchedSkills.length > 0) {
+                    html += `<div class="mb-8"><h2 class="text-2xl font-bold flex items-center gap-2"><i class="fa-solid fa-laptop-code text-[#008dc9]"></i> Skills (${matchedSkills.length})</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-3">`;
+                    for(let skill of matchedSkills) {
+                        html += `<div onclick='showSkillDetails(${skill.id})' class="skill-card-modern p-5"><div class="text-4xl">${skill.icon}</div><h3 class="text-xl font-bold">${skill.title}</h3><p class="text-gray-600 text-sm">${skill.desc.substring(0,70)}</p></div>`;
+                    }
+                    html += `</div></div>`;
+                }
+                if(matchedProjects.length > 0) {
+                    html += `<div class="mb-8"><h2 class="text-2xl font-bold">📁 Projects (${matchedProjects.length})</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-4">`;
+                    for(let idx = 0; idx < matchedProjects.length; idx++) {
+                        let p = matchedProjects[idx];
+                        let originalIndex = allProjectsData.findIndex(proj => proj.title === p.title);
+                        html += `<div onclick="showProjectModal(${originalIndex})" class="project-card overflow-hidden"><img src="${p.img}" class="h-36 w-full object-cover"><div class="p-4"><h3 class="font-bold">${p.title}</h3><p class="text-sm">${p.desc}</p></div></div>`;
+                    }
+                    html += `</div></div>`;
+                }
+                if(matchedEducation.length > 0) {
+                    html += `<div><h2 class="text-2xl font-bold">🎓 Education</h2><div class="space-y-3">`;
+                    for(let edu of matchedEducation) {
+                        html += `<div class="bg-white rounded-xl shadow p-4 border-l-4 border-[#008dc9]"><h3 class="font-bold">${edu.title}</h3>`;
+                        if(edu.institution) html += `<p class="text-sm text-[#008dc9]">${edu.institution}</p>`;
+                        if(edu.details) html += `<p class="text-gray-600">${edu.details}</p>`;
+                        html += `</div>`;
+                    }
+                    html += `</div></div>`;
+                }
             }
             html += `</div>`;
             document.getElementById('main-content').innerHTML = html;
         }
         
-        function highlightText(text) { if(!searchQuery || !text) return text; try { const regex = new RegExp(`(${searchQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'); return text.replace(regex, `<mark class="bg-yellow-300 text-black px-0.5 rounded font-semibold">$1</mark>`); } catch(e) { return text; } }
+        function renderDashboard() { document.getElementById('main-content').innerHTML = `<div class="rounded-2xl overflow-hidden shadow-xl"><div class="h-[500px] md:h-[600px] relative" style="background-image: url('https://i.postimg.cc/Qxcmqnrd/forex2.jpg'); background-size: cover; background-position: center;"><div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div><div class="absolute bottom-10 left-6 md:bottom-16 md:left-12 text-white"><h1 class="text-3xl md:text-6xl font-bold">${t('dashboardTitle')}</h1><h2 class="text-4xl md:text-7xl font-bold mt-2">${t('name')}</h2><div class="mt-6 space-y-2 text-base md:text-xl"><div><i class="fa-solid fa-code mr-2"></i>${t('fullstack')}</div><div><i class="fa-solid fa-chart-line mr-2"></i>${t('business')}</div><div><i class="fa-solid fa-pen-nib mr-2"></i>${t('graphics')}</div><div><i class="fa-solid fa-chart-simple mr-2"></i>${t('forex')}</div></div></div></div></div>`; }
+        function renderSkillsPage() { let html = `<div><h1 class="text-4xl font-bold">${t('skillsTitle')}</h1><p class="mb-8 text-gray-600">${t('skillsSub')}</p><div class="grid grid-cols-1 md:grid-cols-3 gap-6">`; for(let skill of allSkillsData) { const title = currentLang === 'en' ? skill.titleEn : skill.titleSw; const desc = currentLang === 'en' ? skill.descEn : skill.descSw; html += `<div onclick='showSkillDetails(${skill.id})' class="skill-card-modern p-6"><div class="text-5xl mb-4">${skill.icon}</div><h3 class="text-2xl font-bold">${title}</h3><p class="mt-2 text-gray-700">${desc}</p><div class="mt-4 text-sm text-[#008dc9] font-medium">${t('viewDetails')}</div></div>`; } html += `</div></div>`; document.getElementById('main-content').innerHTML = html; }
+        function renderProjectsPage() { let html = `<div><h1 class="text-4xl font-bold">${t('projectsTitle')}</h1><p class="mb-8">${t('projectsSub')}</p><div class="grid grid-cols-1 md:grid-cols-3 gap-6">`; for(let idx=0; idx<allProjectsData.length; idx++) { let p = allProjectsData[idx]; html += `<div onclick="showProjectModal(${idx})" class="project-card overflow-hidden"><img src="${p.img}" class="w-full h-44 object-cover"><div class="p-5"><h3 class="font-bold text-xl">${p.title}</h3><p class="text-gray-700">${p.desc}</p></div></div>`; } html += `</div></div>`; document.getElementById('main-content').innerHTML = html; }
+        function renderEducationPage() { document.getElementById('main-content').innerHTML = `<div><h1 class="text-4xl font-bold">${t('educationTitle')}</h1><div class="bg-white rounded-2xl shadow p-6 mt-6 border-l-8 border-[#008dc9]"><div class="flex gap-5"><div class="text-5xl">🎓</div><div><h3 class="text-2xl font-bold">Bachelor in Business Information Systems</h3><p class="text-[#008dc9] font-medium">UDOM • 2019-2022</p><p class="mt-2">System Analysis, Web Dev, Database Design</p></div></div></div><div class="mt-6 bg-white rounded-2xl shadow p-6"><h3 class="font-bold text-xl">Certificates</h3><ul class="list-disc ml-5 mt-2"><li>Full Stack Web Development - Moringa</li><li>Forex Trading Advanced</li><li>Graphics Design Masterclass</li></ul></div></div>`; }
+        function renderAbout() { document.getElementById('main-content').innerHTML = `<div class="grid md:grid-cols-2 gap-8"><div><img src="https://i.postimg.cc/ZYGjpzX4/me1.jpg" class="rounded-2xl shadow-xl w-full object-cover h-96 cursor-pointer gallery-img" onclick="openFullscreen('https://i.postimg.cc/ZYGjpzX4/me1.jpg')"></div><div><h1 class="text-4xl font-bold mb-4">${t('aboutTitle')}</h1><p class="text-gray-800 text-lg leading-relaxed">Naitwa Jackson Myula, ni Full Stack Developer, Graphics Designer na Forex Trader mwenye shauku kubwa ya teknolojia na biashara. Ninaleta suluhisho za kisasa na ubora kwa wateja wangu kutoka Tanzania, Dodoma.</p><div class="mt-8 flex flex-wrap gap-3"><button onclick="previewCV()" class="bg-[#008dc9] text-white px-5 py-2.5 rounded-xl font-medium transition hover:bg-[#006b9a]"><i class="fa-solid fa-eye"></i> ${t('previewCV')}</button><button onclick="downloadCV()" class="bg-gray-800 text-white px-5 py-2.5 rounded-xl font-medium transition hover:bg-gray-700"><i class="fa-solid fa-download"></i> ${t('downloadCV')}</button></div><p class="text-xs text-gray-500 mt-4"><i class="fa-regular fa-file-pdf"></i> CV file: jacksoncv.pdf (same folder)</p></div></div>`; }
         
-        function renderDashboard() { document.getElementById('main-content').innerHTML = `<div class="rounded-2xl overflow-hidden shadow-xl border border-gray-100"><div class="hero-bg h-[500px] md:h-[600px] relative" style="background-image: url('https://i.postimg.cc/Qxcmqnrd/forex2.jpg?w=1200'); background-size: cover; background-position: center;"><div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div><div class="absolute bottom-10 left-6 md:bottom-16 md:left-12 text-white"><h1 class="text-3xl md:text-6xl font-bold">${t('dashboardTitle')}</h1><h2 class="text-4xl md:text-7xl font-bold mt-2">${t('name')}</h2><div class="mt-6 space-y-2 text-base md:text-xl"><div><i class="fa-solid fa-code mr-2"></i>${t('fullstack')}</div><div><i class="fa-solid fa-chart-line mr-2"></i>${t('business')}</div><div><i class="fa-solid fa-pen-nib mr-2"></i>${t('graphics')}</div><div><i class="fa-solid fa-chart-simple mr-2"></i>${t('forex')}</div></div></div></div></div>`; }
-        function renderSkillsPage() { let html = `<div><h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-3">${t('skillsTitle')}</h1><p class="text-gray-800 mb-10">${t('skillsSub')}</p><div class="grid grid-cols-1 md:grid-cols-3 gap-6">${allSkillsData.map(skill => { const title = currentLang === 'en' ? skill.titleEn : skill.titleSw; const desc = currentLang === 'en' ? skill.descEn : skill.descSw; return `<div onclick='showSkillDetails(${skill.id})' class="skill-card-modern p-6"><div class="text-5xl mb-4">${skill.icon}</div><h3 class="text-2xl font-bold text-gray-900">${title}</h3><p class="text-gray-700 mt-2">${desc}</p><div class="mt-4 text-sm text-gray-800 border-t pt-3"><i class="fa-solid fa-circle-info text-[#008dc9]"></i> <span class="font-medium">${t('viewDetails')}</span></div></div>`; }).join('')}</div></div>`; document.getElementById('main-content').innerHTML = html; }
-        function renderProjectsPage() { let html = `<div><h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">${t('projectsTitle')}</h1><p class="text-gray-800 mb-8">${t('projectsSub')}</p><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">${allProjectsData.map((p,idx) => `<div onclick="showProjectModal(${idx})" class="project-card overflow-hidden"><img src="${p.img}" class="w-full h-44 object-cover gallery-img cursor-pointer" onclick="event.stopPropagation(); openFullscreen('${p.img}')"><div class="p-5"><h3 class="font-bold text-xl text-gray-900">${p.title}</h3><p class="text-gray-700 mt-1">${p.desc}</p></div></div>`).join('')}</div></div>`; document.getElementById('main-content').innerHTML = html; }
-        function renderEducationPage() { document.getElementById('main-content').innerHTML = `<div><h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">${t('educationTitle')}</h1><div class="bg-white rounded-2xl shadow p-6 md:p-8 border-l-8 border-[#008dc9]"><div class="flex gap-5"><div class="text-5xl">🎓</div><div><h3 class="text-2xl font-bold text-gray-900">Bachelor in Business Information Systems</h3><p class="text-[#008dc9] font-medium">UDOM • 2019-2022</p><p class="text-gray-700 mt-2">System Analysis, Web Dev, Database Design</p></div></div></div><div class="mt-6 bg-white rounded-2xl shadow p-6"><h3 class="font-bold text-xl text-gray-900">Certificates</h3><ul class="list-disc list-inside text-gray-800 mt-2"><li>Full Stack Web Development - Moringa</li><li>Forex Trading Advanced</li><li>Graphics Design Masterclass</li></ul></div></div>`; }
-        function renderAbout() { document.getElementById('main-content').innerHTML = `<div class="grid md:grid-cols-2 gap-8"><div><img src="https://i.postimg.cc/ZYGjpzX4/me1.jpgF?w=800" class="rounded-2xl shadow-xl w-full object-cover h-96 gallery-img cursor-pointer" onclick="openFullscreen('https://i.postimg.cc/ZYGjpzX4/me1.jpg?w=1200')"></div><div><h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">${t('aboutTitle')}</h1><p class="text-gray-800 text-lg leading-relaxed">Naitwa Jackson Myula, ni Full Stack Developer, Graphics Designer na Forex Trader mwenye shauku kubwa ya teknolojia na biashara. Ninaleta suluhisho za kisasa na ubora kwa wateja wangu kutoka Tanzania.</p><div class="mt-8 flex flex-wrap gap-3"><button onclick="previewCV()" class="bg-[#008dc9] text-white px-5 py-2.5 rounded-xl font-medium hover:bg-[#006b9a] transition"><i class="fa-solid fa-eye"></i> ${t('previewCV')}</button><button onclick="downloadCV()" class="bg-gray-800 text-white px-5 py-2.5 rounded-xl font-medium hover:bg-gray-700 transition"><i class="fa-solid fa-download"></i> ${t('downloadCV')}</button></div><p class="text-sm text-gray-500 mt-4"><i class="fa-regular fa-file-pdf"></i> CV file: jacksoncv.pdf</p></div></div>`; }
-        
-        function renderContact() { document.getElementById('main-content').innerHTML = `<div><h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">${t('contactTitle')}</h1><div class="space-y-5 text-lg bg-white p-6 rounded-2xl shadow"><div class="flex gap-4 items-center"><i class="fa-solid fa-phone text-3xl text-[#008dc9]"></i><a href="tel:0746526243" class="text-gray-800">0746 526 243</a></div><div class="flex gap-4 items-center"><i class="fa-solid fa-envelope text-3xl text-[#008dc9]"></i><a href="mailto:jacksonmyula773@gmail.com" class="text-gray-800">jacksonmyula773@gmail.com</a></div><a href="https://wa.me/255746526243" target="_blank" class="inline-flex items-center gap-3 bg-[#25D366] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#128C7E] transition"><i class="fa-brands fa-whatsapp text-2xl"></i> ${t('whatsapp')}</a><a href="sms:0746526243" class="inline-flex items-center gap-3 bg-[#3b82f6] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#2563eb] transition"><i class="fa-solid fa-envelope text-2xl"></i> ${t('smsMe')}</a></div><div class="mt-8 bg-white rounded-2xl shadow p-6"><h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-[#008dc9]"></i> ${t('changeLanguage')}</h2><p class="text-gray-600 mb-4">${t('selectLanguage')}:</p><div class="flex gap-4 flex-wrap"><button onclick="setLanguage('en')" class="lang-setting-btn flex-1 text-center"><i class="fa-solid fa-flag-usa"></i> English</button><button onclick="setLanguage('sw')" class="lang-setting-btn flex-1 text-center"><i class="fa-solid fa-flag"></i> Kiswahili</button></div><p class="text-sm text-gray-500 mt-4"><i class="fa-regular fa-circle-check text-green-500"></i> Current language: <span class="font-semibold">${currentLang === 'en' ? 'English' : 'Kiswahili'}</span></p></div></div>`; }
-        
-        window.showSkillDetails = function(skillId) { const details = { 1: { titleEn: "Full Stack Development", titleSw: "Maendeleo ya Programu Kamili", fullDesc: t('fullDesc1'), achievements: t('achievements'), images: africanImages.dev }, 2: { titleEn: "Graphics Design", titleSw: "Ubunifu wa Picha", fullDesc: t('fullDesc2'), achievements: t('achievements2'), images: africanImages.graphics }, 3: { titleEn: "Forex Trading", titleSw: "Biashara ya Forex", fullDesc: t('fullDesc3'), achievements: t('achievements3'), images: africanImages.forex } }; const d = details[skillId]; const title = currentLang === 'en' ? d.titleEn : d.titleSw; const imagesHTML = d.images.map(img => `<img src="${img}" class="gallery-img rounded-xl shadow-md w-full h-48 object-cover" onclick="event.stopPropagation(); openFullscreen('${img}')">`).join(''); document.getElementById('modalTitle').innerHTML = title; document.getElementById('modalContent').innerHTML = `<p class="text-gray-800 text-base leading-relaxed mb-5">${d.fullDesc}</p><div class="bg-[#008dc9]/10 p-4 rounded-xl mb-6"><h4 class="font-bold text-[#008dc9] mb-2"><i class="fa-solid fa-trophy"></i> Achievements</h4><p class="text-gray-800">${d.achievements}</p></div><h4 class="font-bold text-xl mb-3">Gallery (${d.images.length} Images - Click to enlarge)</h4><div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">${imagesHTML}</div>`; document.getElementById('modal').classList.remove('hidden'); };
-        window.showProjectModal = function(idx) { const p = allProjectsData[idx]; document.getElementById('modalTitle').innerHTML = p.title; document.getElementById('modalContent').innerHTML = `<img src="${p.img}" class="gallery-img w-full rounded-xl mb-5 cursor-pointer" onclick="event.stopPropagation(); openFullscreen('${p.img}')"><p class="text-gray-800 text-lg">${p.detail}</p><p class="text-sm text-gray-500 mt-3"><i class="fa-solid fa-expand"></i> Click image to view fullscreen</p>`; document.getElementById('modal').classList.remove('hidden'); };
-        
-        function changeSidebarColor(start, end) { 
-            document.documentElement.style.setProperty('--sidebar-start', start); 
-            document.documentElement.style.setProperty('--sidebar-end', end); 
-            localStorage.setItem('sidebarStart', start); 
-            localStorage.setItem('sidebarEnd', end); 
-            // Force update on mobile as well
-            const mobileSidebar = document.getElementById('mobileSidebar');
-            const topBar = document.querySelector('.top-bar');
-            if(mobileSidebar) mobileSidebar.style.background = `linear-gradient(135deg, ${start}, ${end})`;
-            if(topBar) topBar.style.background = `linear-gradient(135deg, ${start}, ${end})`;
+        function renderContact() { 
+            let html = `<div><h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">${t('contactTitle')}</h1>`;
+            html += `<div class="bg-white rounded-2xl shadow-xl p-6 md:p-8">`;
+            html += `<div class="space-y-4 mb-8"><h2 class="text-xl font-semibold text-gray-800 mb-4"><i class="fa-solid fa-address-card text-[#008dc9]"></i> Contact Information</h2>`;
+            html += `<div class="flex items-center gap-4 p-3 bg-gray-50 rounded-xl"><i class="fa-solid fa-phone text-2xl text-[#008dc9]"></i><div><p class="text-sm text-gray-500">Phone Number</p><a href="tel:0746526243" class="text-gray-800 font-medium">0746 526 243</a></div></div>`;
+            html += `<div class="flex items-center gap-4 p-3 bg-gray-50 rounded-xl"><i class="fa-solid fa-envelope text-2xl text-[#008dc9]"></i><div><p class="text-sm text-gray-500">Email Address</p><a href="mailto:jacksonmyula773@gmail.com" class="text-gray-800 font-medium">jacksonmyula773@gmail.com</a></div></div>`;
+            html += `</div><div class="border-t pt-6"><h2 class="text-xl font-semibold text-gray-800 mb-4"><i class="fa-solid fa-comment-dots text-[#008dc9]"></i> Message Me Directly</h2>`;
+            html += `<div class="flex flex-wrap gap-3">`;
+            html += `<a href="tel:0746526243" class="contact-small-btn bg-[#22c55e] text-white"><i class="fa-solid fa-phone"></i> ${t('callMe')}</a>`;
+            html += `<a href="https://wa.me/255746526243" target="_blank" class="contact-small-btn bg-[#25D366] text-white"><i class="fa-brands fa-whatsapp"></i> ${t('whatsapp')}</a>`;
+            html += `<a href="sms:0746526243" class="contact-small-btn bg-[#3b82f6] text-white"><i class="fa-solid fa-envelope"></i> ${t('smsMe')}</a>`;
+            html += `<a href="https://www.instagram.com/jackson_mabango_dodoma?igsh=OXd4Mjc3dDkzOGVo" target="_blank" class="contact-small-btn" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: white;"><i class="fa-brands fa-instagram"></i> ${t('instagram')}</a>`;
+            html += `</div></div></div>`;
+            html += `<div class="mt-8 bg-white rounded-2xl shadow p-6"><h2 class="text-2xl font-bold flex gap-2 text-gray-800"><i class="fa-solid fa-language text-[#008dc9]"></i> ${t('changeLanguage')}</h2><p class="text-gray-600 mb-4">${t('selectLanguage')}</p><div class="flex gap-4 flex-wrap"><button onclick="setLanguage('en')" class="lang-setting-btn flex-1 text-center">🇬🇧 English</button><button onclick="setLanguage('sw')" class="lang-setting-btn flex-1 text-center">🇹🇿 Kiswahili</button></div><p class="text-sm text-gray-500 mt-4"><i class="fa-regular fa-circle-check text-green-500"></i> Current language: <span class="font-semibold">${currentLang === 'en' ? 'English' : 'Kiswahili'}</span></p></div></div>`;
+            document.getElementById('main-content').innerHTML = html;
         }
+        
+        window.showSkillDetails = function(skillId) { const details = { 1: { titleEn: "Full Stack Development", titleSw: "Maendeleo ya Programu Kamili", fullDesc: t('fullDesc1'), achievements: t('achievements'), images: africanImages.dev }, 2: { titleEn: "Graphics Design", titleSw: "Ubunifu wa Picha", fullDesc: t('fullDesc2'), achievements: t('achievements2'), images: africanImages.graphics }, 3: { titleEn: "Forex Trading", titleSw: "Biashara ya Forex", fullDesc: t('fullDesc3'), achievements: t('achievements3'), images: africanImages.forex } }; const d = details[skillId]; const title = currentLang === 'en' ? d.titleEn : d.titleSw; let imagesHTML = ''; for(let img of d.images) { imagesHTML += `<img src="${img}" class="gallery-img rounded-xl shadow-md w-full h-48 object-cover cursor-pointer" onclick="event.stopPropagation(); openFullscreen('${img}')">`; } document.getElementById('modalTitle').innerHTML = title; document.getElementById('modalContent').innerHTML = `<p class="mb-5">${d.fullDesc}</p><div class="bg-[#008dc9]/10 p-4 rounded-xl mb-6"><h4 class="font-bold text-[#008dc9]">🏆 Achievements</h4><p>${d.achievements}</p></div><div class="grid grid-cols-1 sm:grid-cols-3 gap-4">${imagesHTML}</div>`; document.getElementById('modal').classList.remove('hidden'); };
+        window.showProjectModal = function(idx) { const p = allProjectsData[idx]; document.getElementById('modalTitle').innerHTML = p.title; document.getElementById('modalContent').innerHTML = `<img src="${p.img}" class="w-full rounded-xl mb-5 cursor-pointer gallery-img" onclick="openFullscreen('${p.img}')"><p class="text-lg">${p.detail}</p>`; document.getElementById('modal').classList.remove('hidden'); };
+        
+        function changeSidebarColor(start, end) { document.documentElement.style.setProperty('--sidebar-start', start); document.documentElement.style.setProperty('--sidebar-end', end); localStorage.setItem('sidebarStart', start); localStorage.setItem('sidebarEnd', end); const mobileSidebar = document.getElementById('mobileSidebar'); if(mobileSidebar) mobileSidebar.style.background = `linear-gradient(135deg, ${start}, ${end})`; const topBar = document.querySelector('.top-bar'); if(topBar) topBar.style.background = `linear-gradient(135deg, ${start}, ${end})`; }
         function resetSidebarColor() { changeSidebarColor('#008dc9', '#006b9a'); }
         function loadSavedSidebarColor() { const s = localStorage.getItem('sidebarStart'); const e = localStorage.getItem('sidebarEnd'); if(s && e) changeSidebarColor(s, e); }
         function openSettings() { document.getElementById('settingsModal').classList.remove('hidden'); }
@@ -374,8 +389,8 @@
         function initDarkMode() { const dark = localStorage.getItem('darkMode') === 'true'; if(dark) document.body.classList.add('dark'); document.getElementById('darkModeToggle')?.addEventListener('click',()=>{ document.body.classList.toggle('dark'); localStorage.setItem('darkMode', document.body.classList.contains('dark')); }); }
         function setupSearch() { document.getElementById('searchInput').addEventListener('input', (e) => { searchQuery = e.target.value.toLowerCase().trim(); performGlobalSearch(); }); }
         
-        window.onload = () => { const savedLang = localStorage.getItem('portfolioLang'); if(savedLang === 'sw') currentLang = 'sw'; initSearchData(); renderMenus(); renderDashboard(); initDarkMode(); loadSavedSidebarColor(); setupSearch(); updateSearchPlaceholder(); document.getElementById('langEnBtn').style.opacity = currentLang === 'en' ? '1' : '0.7'; document.getElementById('langSwBtn').style.opacity = currentLang === 'sw' ? '1' : '0.7'; };
-        window.openSidebarMobile = openSidebarMobile; window.closeSidebarMobile = closeSidebarMobile; window.navigateTo = navigateTo; window.closeModal = closeModal; window.openSettings = openSettings; window.closeSettings = closeSettings; window.changeSidebarColor = changeSidebarColor; window.resetSidebarColor = resetSidebarColor; window.setLanguage = setLanguage; window.openFullscreen = openFullscreen; window.closeFullscreen = closeFullscreen; window.previewCV = previewCV; window.downloadCV = downloadCV; window.showSkillDetails = showSkillDetails; window.showProjectModal = showProjectModal;
+        window.onload = () => { const savedLang = localStorage.getItem('portfolioLang'); if(savedLang === 'sw') currentLang = 'sw'; initSearchData(); renderMenus(); renderDashboard(); initDarkMode(); loadSavedSidebarColor(); setupSearch(); updateSearchPlaceholder(); if(document.getElementById('langEnBtn')) document.getElementById('langEnBtn').style.opacity = currentLang === 'en' ? '1' : '0.7'; if(document.getElementById('langSwBtn')) document.getElementById('langSwBtn').style.opacity = currentLang === 'sw' ? '1' : '0.7'; };
+        window.navigateTo = navigateTo; window.closeModal = closeModal; window.openSettings = openSettings; window.closeSettings = closeSettings; window.changeSidebarColor = changeSidebarColor; window.resetSidebarColor = resetSidebarColor; window.setLanguage = setLanguage; window.openFullscreen = openFullscreen; window.closeFullscreen = closeFullscreen; window.previewCV = previewCV; window.downloadCV = downloadCV; window.openSidebarMobile = openSidebarMobile; window.closeSidebarMobile = closeSidebarMobile; window.showSkillDetails = showSkillDetails; window.showProjectModal = showProjectModal;
     </script>
 </body>
 </html>
