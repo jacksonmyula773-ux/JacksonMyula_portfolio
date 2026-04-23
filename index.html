@@ -204,31 +204,31 @@
 
     <script>
         const africanImages = {
-            dev: ["images/b5.jpg?w=800",
-                  "images/b4.jpg?w=800",
-                  "images/b6.jpg?w=800",
-                  "images/b3.jpg?w=800",
-                  "images/b2.jpg?w=800",
-                  "images/b1.jpg?w=800"],
-            graphics: ["images/bango1.jpg?w=800",
-                       "images/bango3.jpg?w=800",
-                       "images/bango4.jpg?w=800",
-                       "images/bango2.jpg?w=800",
-                       "images/bango6.jpg?w=800",
-                       "images/bango10.jpg?w=800"],
-            forex: ["images/forex1.jpg?w=800",
-                      "images/forex3.jpg?w=800",
-                     "images/forex4.jpg?w=800",
-                     "images/forex2.jpg?w=800",
-                     "images/forex5.jpg?w=800",
-                     "images/forex1.jpg?w=800"]
+            dev: ["https://i.postimg.cc/9XrNypMq/b5.jpg?w=800",
+                  "https://i.postimg.cc/HxKJ53hZ/b4.jpg?w=800",
+                  "https://i.postimg.cc/nMfCSrZs/b6.jpg?w=800",
+                  "https://i.postimg.cc/HxKJ53hB/b3.jpg?w=800",
+                  "https://i.postimg.cc/C1tZDJQ7/b2.jpg?w=800",
+                  "https://i.postimg.cc/x8zXPHwg/b1.jpg?w=800"],
+            graphics: ["https://i.postimg.cc/hhRfZvgL/bango2.jpg?w=800",
+                       "https://i.postimg.cc/W4N5zmCh/bango8.jpg?w=800",
+                       "https://i.postimg.cc/ZqbwnP2z/bango5.jpg?w=800",
+                       "https://i.postimg.cc/26JG0s6r/bango10.jpg?w=800",
+                       "https://i.postimg.cc/0NkVjGFx/bango7.jpg?w=800",
+                       "https://i.postimg.cc/Nj7NQCJh/bango6.jpg?w=800"],
+            forex: ["https://i.postimg.cc/nVyTBfg2/forex1.jpg?w=800",
+                      "https://i.postimg.cc/yY0jTrzJ/forex3.jpg?w=800",
+                     "https://i.postimg.cc/zDspKY6F/forex4.jpg?w=800",
+                     "ihttps://i.postimg.cc/Qxcmqnrd/forex2.jpg?w=800",
+                     "https://i.postimg.cc/NfRDxPwg/forex5.jpg?w=800",
+                     "https://i.postimg.cc/nVyTBfg2/forex1.jpg?w=800"]
         };
-        const projectImages = [ "images/b1.JPG?w=800",
-                                "images/forex1.JPG?w=800",
-                                "images/b4.JPG?w=800",
-                                "images/b2.JPG?w=800",
-                                "images/b3.JPG?w=800",
-                                "images/b5.JPG?w=800"];
+        const projectImages = [ "https://i.postimg.cc/x8zXPHwg/b1.jpg?w=800",
+                                "https://i.postimg.cc/nVyTBfg2/forex1.jpg?w=800",
+                                "https://i.postimg.cc/HxKJ53hZ/b4.jpg?w=800",
+                                "https://i.postimg.cc/C1tZDJQ7/b2.jpg?w=800",
+                                "https://i.postimg.cc/HxKJ53hB/b3.jpg?w=800",
+                                "https://i.postimg.cc/9XrNypMq/b5.jpg?w=800"];
         
         const translations = {
             en: { dashboardTitle: "My Portfolio", name: "JACKSON MYULA", fullstack: "Full Stack Developer", business: "Business Systems Designer", graphics: "Graphics Designer", forex: "Forex Trader", skillsTitle: "My Skills & Expertise", skillsSub: "Click any card to see full details, 6+ images & achievements", fullstackDev: "Full Stack Development", fullstackDesc: "Building complete web apps and business systems.", graphicsDesign: "Graphics Design", graphicsDesc: "Professional branding, logos, posters, visual identity.", forexTrade: "Forex Trading", forexDesc: "Technical & fundamental analysis with 5+ years experience.", projectsTitle: "My Projects", projectsSub: "Real projects built for clients", educationTitle: "Education & Certificates", aboutTitle: "About Me", contactTitle: "Contact Me", previewCV: "Preview CV", downloadCV: "Download CV", whatsapp: "Message on WhatsApp", callMe: "Call Me", smsMe: "Send SMS", changeLanguage: "Change Website Language", selectLanguage: "Select Language", searchPlaceholder: "🔍 Search anything - skills, projects, education...", viewDetails: "Click for details & images", achievements: "✅ 15+ business systems | React, Node, Laravel", achievements2: "✅ 50+ projects | Adobe PS, Illustrator", achievements3: "✅ 5+ years experience | 25%+ ROI", fullDesc1: "I build complete web applications using React, Node.js, Laravel, MySQL. Delivered 15+ business systems.", fullDesc2: "I create professional brand identities, logos, banners, posters with 50+ successful projects.", fullDesc3: "Professional Forex trader with 5+ years experience, technical analysis, risk management." },
@@ -342,11 +342,11 @@
         
         function highlightText(text) { if(!searchQuery || !text) return text; try { const regex = new RegExp(`(${searchQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'); return text.replace(regex, `<mark class="bg-yellow-300 text-black px-0.5 rounded font-semibold">$1</mark>`); } catch(e) { return text; } }
         
-        function renderDashboard() { document.getElementById('main-content').innerHTML = `<div class="rounded-2xl overflow-hidden shadow-xl border border-gray-100"><div class="hero-bg h-[500px] md:h-[600px] relative" style="background-image: url('images/forex2.jpg?w=1200'); background-size: cover; background-position: center;"><div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div><div class="absolute bottom-10 left-6 md:bottom-16 md:left-12 text-white"><h1 class="text-3xl md:text-6xl font-bold">${t('dashboardTitle')}</h1><h2 class="text-4xl md:text-7xl font-bold mt-2">${t('name')}</h2><div class="mt-6 space-y-2 text-base md:text-xl"><div><i class="fa-solid fa-code mr-2"></i>${t('fullstack')}</div><div><i class="fa-solid fa-chart-line mr-2"></i>${t('business')}</div><div><i class="fa-solid fa-pen-nib mr-2"></i>${t('graphics')}</div><div><i class="fa-solid fa-chart-simple mr-2"></i>${t('forex')}</div></div></div></div></div>`; }
+        function renderDashboard() { document.getElementById('main-content').innerHTML = `<div class="rounded-2xl overflow-hidden shadow-xl border border-gray-100"><div class="hero-bg h-[500px] md:h-[600px] relative" style="background-image: url('https://i.postimg.cc/Qxcmqnrd/forex2.jpg?w=1200'); background-size: cover; background-position: center;"><div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div><div class="absolute bottom-10 left-6 md:bottom-16 md:left-12 text-white"><h1 class="text-3xl md:text-6xl font-bold">${t('dashboardTitle')}</h1><h2 class="text-4xl md:text-7xl font-bold mt-2">${t('name')}</h2><div class="mt-6 space-y-2 text-base md:text-xl"><div><i class="fa-solid fa-code mr-2"></i>${t('fullstack')}</div><div><i class="fa-solid fa-chart-line mr-2"></i>${t('business')}</div><div><i class="fa-solid fa-pen-nib mr-2"></i>${t('graphics')}</div><div><i class="fa-solid fa-chart-simple mr-2"></i>${t('forex')}</div></div></div></div></div>`; }
         function renderSkillsPage() { let html = `<div><h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-3">${t('skillsTitle')}</h1><p class="text-gray-800 mb-10">${t('skillsSub')}</p><div class="grid grid-cols-1 md:grid-cols-3 gap-6">${allSkillsData.map(skill => { const title = currentLang === 'en' ? skill.titleEn : skill.titleSw; const desc = currentLang === 'en' ? skill.descEn : skill.descSw; return `<div onclick='showSkillDetails(${skill.id})' class="skill-card-modern p-6"><div class="text-5xl mb-4">${skill.icon}</div><h3 class="text-2xl font-bold text-gray-900">${title}</h3><p class="text-gray-700 mt-2">${desc}</p><div class="mt-4 text-sm text-gray-800 border-t pt-3"><i class="fa-solid fa-circle-info text-[#008dc9]"></i> <span class="font-medium">${t('viewDetails')}</span></div></div>`; }).join('')}</div></div>`; document.getElementById('main-content').innerHTML = html; }
         function renderProjectsPage() { let html = `<div><h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">${t('projectsTitle')}</h1><p class="text-gray-800 mb-8">${t('projectsSub')}</p><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">${allProjectsData.map((p,idx) => `<div onclick="showProjectModal(${idx})" class="project-card overflow-hidden"><img src="${p.img}" class="w-full h-44 object-cover gallery-img cursor-pointer" onclick="event.stopPropagation(); openFullscreen('${p.img}')"><div class="p-5"><h3 class="font-bold text-xl text-gray-900">${p.title}</h3><p class="text-gray-700 mt-1">${p.desc}</p></div></div>`).join('')}</div></div>`; document.getElementById('main-content').innerHTML = html; }
         function renderEducationPage() { document.getElementById('main-content').innerHTML = `<div><h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">${t('educationTitle')}</h1><div class="bg-white rounded-2xl shadow p-6 md:p-8 border-l-8 border-[#008dc9]"><div class="flex gap-5"><div class="text-5xl">🎓</div><div><h3 class="text-2xl font-bold text-gray-900">Bachelor in Business Information Systems</h3><p class="text-[#008dc9] font-medium">UDOM • 2019-2022</p><p class="text-gray-700 mt-2">System Analysis, Web Dev, Database Design</p></div></div></div><div class="mt-6 bg-white rounded-2xl shadow p-6"><h3 class="font-bold text-xl text-gray-900">Certificates</h3><ul class="list-disc list-inside text-gray-800 mt-2"><li>Full Stack Web Development - Moringa</li><li>Forex Trading Advanced</li><li>Graphics Design Masterclass</li></ul></div></div>`; }
-        function renderAbout() { document.getElementById('main-content').innerHTML = `<div class="grid md:grid-cols-2 gap-8"><div><img src="images/me1.jpg?w=800" class="rounded-2xl shadow-xl w-full object-cover h-96 gallery-img cursor-pointer" onclick="openFullscreen('https://images.pexels.com/photos/3184297/pexels-photo-3184297.jpeg?w=1200')"></div><div><h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">${t('aboutTitle')}</h1><p class="text-gray-800 text-lg leading-relaxed">Naitwa Jackson Myula, ni Full Stack Developer, Graphics Designer na Forex Trader mwenye shauku kubwa ya teknolojia na biashara. Ninaleta suluhisho za kisasa na ubora kwa wateja wangu kutoka Tanzania.</p><div class="mt-8 flex flex-wrap gap-3"><button onclick="previewCV()" class="bg-[#008dc9] text-white px-5 py-2.5 rounded-xl font-medium hover:bg-[#006b9a] transition"><i class="fa-solid fa-eye"></i> ${t('previewCV')}</button><button onclick="downloadCV()" class="bg-gray-800 text-white px-5 py-2.5 rounded-xl font-medium hover:bg-gray-700 transition"><i class="fa-solid fa-download"></i> ${t('downloadCV')}</button></div><p class="text-sm text-gray-500 mt-4"><i class="fa-regular fa-file-pdf"></i> CV file: jacksoncv.pdf</p></div></div>`; }
+        function renderAbout() { document.getElementById('main-content').innerHTML = `<div class="grid md:grid-cols-2 gap-8"><div><img src="https://i.postimg.cc/ZYGjpzX4/me1.jpgF?w=800" class="rounded-2xl shadow-xl w-full object-cover h-96 gallery-img cursor-pointer" onclick="openFullscreen('https://i.postimg.cc/ZYGjpzX4/me1.jpg?w=1200')"></div><div><h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">${t('aboutTitle')}</h1><p class="text-gray-800 text-lg leading-relaxed">Naitwa Jackson Myula, ni Full Stack Developer, Graphics Designer na Forex Trader mwenye shauku kubwa ya teknolojia na biashara. Ninaleta suluhisho za kisasa na ubora kwa wateja wangu kutoka Tanzania.</p><div class="mt-8 flex flex-wrap gap-3"><button onclick="previewCV()" class="bg-[#008dc9] text-white px-5 py-2.5 rounded-xl font-medium hover:bg-[#006b9a] transition"><i class="fa-solid fa-eye"></i> ${t('previewCV')}</button><button onclick="downloadCV()" class="bg-gray-800 text-white px-5 py-2.5 rounded-xl font-medium hover:bg-gray-700 transition"><i class="fa-solid fa-download"></i> ${t('downloadCV')}</button></div><p class="text-sm text-gray-500 mt-4"><i class="fa-regular fa-file-pdf"></i> CV file: jacksoncv.pdf</p></div></div>`; }
         
         function renderContact() { document.getElementById('main-content').innerHTML = `<div><h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">${t('contactTitle')}</h1><div class="space-y-5 text-lg bg-white p-6 rounded-2xl shadow"><div class="flex gap-4 items-center"><i class="fa-solid fa-phone text-3xl text-[#008dc9]"></i><a href="tel:0746526243" class="text-gray-800">0746 526 243</a></div><div class="flex gap-4 items-center"><i class="fa-solid fa-envelope text-3xl text-[#008dc9]"></i><a href="mailto:jacksonmyula773@gmail.com" class="text-gray-800">jacksonmyula773@gmail.com</a></div><a href="https://wa.me/255746526243" target="_blank" class="inline-flex items-center gap-3 bg-[#25D366] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#128C7E] transition"><i class="fa-brands fa-whatsapp text-2xl"></i> ${t('whatsapp')}</a><a href="sms:0746526243" class="inline-flex items-center gap-3 bg-[#3b82f6] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#2563eb] transition"><i class="fa-solid fa-envelope text-2xl"></i> ${t('smsMe')}</a></div><div class="mt-8 bg-white rounded-2xl shadow p-6"><h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-[#008dc9]"></i> ${t('changeLanguage')}</h2><p class="text-gray-600 mb-4">${t('selectLanguage')}:</p><div class="flex gap-4 flex-wrap"><button onclick="setLanguage('en')" class="lang-setting-btn flex-1 text-center"><i class="fa-solid fa-flag-usa"></i> English</button><button onclick="setLanguage('sw')" class="lang-setting-btn flex-1 text-center"><i class="fa-solid fa-flag"></i> Kiswahili</button></div><p class="text-sm text-gray-500 mt-4"><i class="fa-regular fa-circle-check text-green-500"></i> Current language: <span class="font-semibold">${currentLang === 'en' ? 'English' : 'Kiswahili'}</span></p></div></div>`; }
         
